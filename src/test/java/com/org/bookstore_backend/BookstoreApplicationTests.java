@@ -41,13 +41,22 @@ class BookServiceImplTest {
 
 	@Test
 	void testGetBooks_priceFiltered() {
+<<<<<<< HEAD
 		Book b1 = new Book("SN01", "Cheap Book", "Author A", 500.0);   // filtered out
 		Book b2 = new Book("SN02", "Expensive Book", "Author B", 1500.0); // included
+=======
+		Book b1 = new Book("SN101", "Cheap Book", "Someone", 800.0);
+		Book b2 = new Book("SN102", "Valuable Book", "Someone Else", 1500.0);
+>>>>>>> b61441f0e73b18eb835b3276550125d33138746d
 		when(bookRepo.findAll()).thenReturn(Arrays.asList(b1, b2));
 
 		List<Book> results = bookService.getBooks();
 
 		assertEquals(1, results.size());
+<<<<<<< HEAD
 		assertEquals("Expensive Book", results.get(0).getTitle());
+=======
+		assertEquals("Valuable Book", results.get(0).getTitle());
+>>>>>>> b61441f0e73b18eb835b3276550125d33138746d
 	}
 }

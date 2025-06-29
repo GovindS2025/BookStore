@@ -18,9 +18,15 @@ public class BookServiceImpl implements BookService {
     //Steam API Implementation
 
     @Override
+<<<<<<< HEAD
   /*  public List<Book> getBooks() {
         return bookRepo.findAll();*/
 
+=======
+    public List<Book> getBooks() {
+        return bookRepo.findAll();
+    /*
+>>>>>>> b61441f0e73b18eb835b3276550125d33138746d
     public List<Book> getBooks() {
         return bookRepo.findAll().stream()
                 .filter(book -> book.getPrice() > 1000)
@@ -29,6 +35,10 @@ public class BookServiceImpl implements BookService {
         //here you want to return the book >£1000
 
 
+<<<<<<< HEAD
+=======
+     */
+>>>>>>> b61441f0e73b18eb835b3276550125d33138746d
     }
 
     @Override
