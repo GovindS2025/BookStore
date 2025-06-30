@@ -39,7 +39,7 @@ bookstore/
 │   │   ├── services/impl/  # Service implementations
 │   │   ├── controller/     # REST Controllers
 │   └── resources/
-│       └── application.properties
+│       └── application.yml
 ├── Dockerfile              # (optional) for containerization
 ├── pom.xml                 # Maven config
 └── README.md               # This file
