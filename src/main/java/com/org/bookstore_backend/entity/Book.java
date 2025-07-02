@@ -15,4 +15,12 @@ public class Book {
     private String title;
     private String author;
     private double price;
+
+    public String getPublicationDate() {
+        return "";
+    }
+
+    public String getGenre() {
+        return "";
+    }
 }

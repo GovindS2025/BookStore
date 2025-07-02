@@ -1,5 +1,4 @@
 package com.org.bookstore_backend.services.impl;
-
 import com.org.bookstore_backend.entity.Book;
 import com.org.bookstore_backend.repo.BookRepo;
 import com.org.bookstore_backend.services.BookService;
@@ -8,37 +7,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookRepo bookRepo;
-    //Steam API Implementation
 
     @Override
-<<<<<<< HEAD
-  /*  public List<Book> getBooks() {
-        return bookRepo.findAll();*/
-
-=======
     public List<Book> getBooks() {
         return bookRepo.findAll();
-    /*
->>>>>>> b61441f0e73b18eb835b3276550125d33138746d
-    public List<Book> getBooks() {
-        return bookRepo.findAll().stream()
-                .filter(book -> book.getPrice() > 1000)
-                .sorted(Comparator.comparing(Book::getTitle))
-                .toList();
-        //here you want to return the book >£1000
-
-
-<<<<<<< HEAD
-=======
-     */
->>>>>>> b61441f0e73b18eb835b3276550125d33138746d
     }
 
     @Override
@@ -48,26 +26,65 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book deleteBook(String id) {
-        Optional<Book> bookOpt = bookRepo.findById(String.valueOf(id));
-        if (bookOpt.isPresent()) {
-            bookRepo.deleteById(String.valueOf(id));
-            return bookOpt.get();
-        } else {
-            return null;
-        }
+        return bookRepo.findById(id).map(book -> {
+            bookRepo.deleteById(id);
+            return book;
+        }).orElse(null);
     }
 
     @Override
     public Book updateBook(String id, Book updatedBook) {
-        Optional<Book> bookOpt = bookRepo.findById(String.valueOf(id));
-        if (bookOpt.isPresent()) {
-            Book existingBook = bookOpt.get();
-            existingBook.setTitle(updatedBook.getTitle());
-            existingBook.setAuthor(updatedBook.getAuthor());
-            existingBook.setPrice(updatedBook.getPrice());
-            return bookRepo.save(existingBook);
-        } else {
-            return null;
-        }
+        return bookRepo.findById(id).map(book -> {
+            book.setTitle(updatedBook.getTitle());
+            book.setAuthor(updatedBook.getAuthor());
+            book.setPrice(updatedBook.getPrice());
+            return bookRepo.save(book);
+        }).orElse(null);
+    }
+
+    @Override
+    public Book getBookById(String id) {
+        return bookRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+    }
+
+    @Override
+    public List<Book> getBooksByTitle(String title) {
+        return bookRepo.findAll().stream()
+                .filter(book -> book.getTitle().equalsIgnoreCase(title))
+                .sorted(Comparator.comparing(Book::getTitle))
+                .toList();
+    }
+
+    @Override
+    public List<Book> getBooksByAuthor(String author) {
+        return bookRepo.findAll().stream()
+                .filter(book -> book.getAuthor().equalsIgnoreCase(author))
+                .sorted(Comparator.comparing(Book::getAuthor))
+                .toList();
+    }
+
+    @Override
+    public List<Book> getBooksByGenre(String genre) {
+        return bookRepo.findAll().stream()
+                .filter(book -> book.getGenre().equalsIgnoreCase(genre))
+                .sorted(Comparator.comparing(Book::getGenre))
+                .toList();
+    }
+
+    @Override
+    public List<Book> getBooksByPriceRange(double minPrice, double maxPrice) {
+        return bookRepo.findAll().stream()
+                .filter(book -> book.getPrice() >= minPrice && book.getPrice() <= maxPrice)
+                .sorted(Comparator.comparing(Book::getPrice))
+                .toList();
+    }
+
+    @Override
+    public List<Book> getBooksByPublicationDate(String publicationDate) {
+        return bookRepo.findAll().stream()
+                .filter(book -> book.getPublicationDate().equalsIgnoreCase(publicationDate))
+                .sorted(Comparator.comparing(Book::getPublicationDate))
+                .toList();
     }
 }
