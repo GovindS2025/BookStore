@@ -1,33 +1,66 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+#########################################
+### Build Artifacts
+#########################################
+/target/
+build/
+out/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# If you have React frontend (optional)
+frontend/node_modules/
+frontend/build/
 
-### IntelliJ IDEA ###
-.idea
+#########################################
+### Environment and Secrets
+#########################################
+.env
+.env.local
+.env.*.local
+*.keystore
+
+#########################################
+### Logs and Temp Files
+#########################################
+*.log
+logs/
+*.tmp
+
+#########################################
+### IDE Files
+#########################################
+
+# IntelliJ
+.idea/
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+# VS Code
+.vscode/
+
+# Eclipse / STS
+.classpath
+.project
+.factorypath
+.settings/
+.apt_generated
+.springBeans
+.sts4-cache
+
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+#########################################
+### Maven Wrapper
+#########################################
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+
+#########################################
+### Docker
+#########################################
+*.jar
+docker-compose.override.yml
