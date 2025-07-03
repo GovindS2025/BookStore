@@ -1,31 +1,128 @@
+#
+#services:
+#  postgres-db:
+#    image: postgres:14
+#    container_name: my-postgres
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_USER: my-user
+#      POSTGRES_PASSWORD: user-password
+#      POSTGRES_DB: my-db
+#
+#  postgres-client:
+#    image: postgres:14
+#    container_name: psql-client
+#    depends_on:
+#      - postgres-db
+#    entrypoint: [ "tail", "-f", "/dev/null" ]
+#
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    container_name: my-pgadmin
+#    restart: always
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: admin@example.com
+#      PGADMIN_DEFAULT_PASSWORD: admin123
+#    ports:
+#      - "5050:80"
+#
+#  redis:
+#    image: redis:7
+#    container_name: redis_cache
+#    ports:
+#      - "6379:6379"
+#
+#  springboot-app:
+#    build:
+#      context: ./
+#    container_name: springboot_app
+#    depends_on:
+#      - postgres-db
+#      - redis
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/my-db
+#      SPRING_DATASOURCE_USERNAME: my-user
+#      SPRING_DATASOURCE_PASSWORD: user-password
+#      SPRING_REDIS_HOST: redis_cache
+#      SPRING_REDIS_PORT: 6379
+#
+#  frontend:
+#    build:
+#      context: ./react-frontend
+#    container_name: react_frontend
+#    ports:
+#      - "3000:80"
+#    depends_on:
+#      - springboot-app
+#
+#
+#volumes:
+#  postgres_data:
+#    driver: local
+
 services:
-  mongo:
-    image: mongo:7.0
-    container_name: mongo
+  postgres-db:
+    image: postgres:14
+    container_name: my-postgres
     ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: my-user
+      POSTGRES_PASSWORD: user-password
+      POSTGRES_DB: my-db
+
+  postgres-client:
+    image: postgres:14
+    container_name: psql-client
+    depends_on:
+      - postgres-db
+    entrypoint: [ "tail", "-f", "/dev/null" ]
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: my-pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
 
   redis:
-    image: redis:7.2
-    container_name: redis
+    image: redis:7
+    container_name: redis_cache
     ports:
       - "6379:6379"
 
-  backend:
-    build: .
-    container_name: bookstore-backend
+  BookStore_springboot_app:
+    build:
+      context: ./
+    container_name: BookStore_springboot_app
+    depends_on:
+      - postgres-db
+      - redis
     ports:
       - "8080:8080"
-    depends_on:
-      - mongo
-      - redis
-    dns:
-      - 8.8.8.8
     environment:
-      MONGO_USER: ${MONGO_USER}
-      MONGO_PASS: ${MONGO_PASS}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/my-db
+      SPRING_DATASOURCE_USERNAME: my-user
+      SPRING_DATASOURCE_PASSWORD: user-password
+      SPRING_REDIS_HOST: redis_cache
+      SPRING_REDIS_PORT: 6379
+
+  frontend:
+    build:
+      context: ./Frontend
+    container_name: react_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - BookStore_springboot_app
+
 
 volumes:
-  mongo-data: {}
+  postgres_data:
+    driver: local

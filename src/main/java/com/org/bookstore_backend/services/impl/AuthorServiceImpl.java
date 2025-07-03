@@ -1,6 +1,7 @@
 package com.org.bookstore_backend.services.impl;
+
 import com.org.bookstore_backend.entity.Author;
-//import com.org.bookstore_backend.repo.AuthorRepo;
+import com.org.bookstore_backend.repo.AuthorRepo;
 import com.org.bookstore_backend.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<Author> getAuthors() {
+    public List<AuthorRepo> getAuthors() {
         return authorRepo.findAll();
     }
 
@@ -47,13 +48,13 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public com.org.bookstore_backend.repo.Author getAuthorById(String id) {
+    public AuthorRepo getAuthorById(String id) {
         return authorRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Author not found with id: " + id));
     }
 
     @Override
-    public List<com.org.bookstore_backend.repo.Author> getAuthorsByName(String name) {
+    public List<AuthorRepo> getAuthorsByName(String name) {
         return authorRepo.findAll().stream()
                 .filter(a -> a.getName().equalsIgnoreCase(name))
                 .sorted(Comparator.comparing(Author::getName))
@@ -61,14 +62,14 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<com.org.bookstore_backend.repo.Author> getAuthorsByBookTitle(String bookTitle) {
+    public List<AuthorRepo> getAuthorsByBookTitle(String bookTitle) {
         return authorRepo.findAll().stream()
                 .filter(a -> a.getBiography().toLowerCase().contains(bookTitle.toLowerCase())) // placeholder
                 .toList();
     }
 
     @Override
-    public List<com.org.bookstore_backend.repo.Author> getAuthorsByGenre(String genre) {
+    public List<AuthorRepo> getAuthorsByGenre(String genre) {
         return authorRepo.findAll().stream()
                 .filter(a -> a.getBiography().toLowerCase().contains(genre.toLowerCase())) // placeholder
                 .toList();
@@ -80,7 +81,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<com.org.bookstore_backend.repo.Author> getAllAuthors() {
+    public List<AuthorRepo> getAllAuthors() {
         return authorRepo.findAll();
     }
 }

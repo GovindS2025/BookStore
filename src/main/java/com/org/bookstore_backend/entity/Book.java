@@ -1,14 +1,19 @@
 package com.org.bookstore_backend.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-@AllArgsConstructor
+/*@AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(collection = "books")
+@Document(collection = "books")*/
+
+@Entity
+@Table(name = "books")
 public class Book {
     // Getters and setters
     @Id
@@ -43,6 +48,24 @@ public class Book {
     }
 
     public void setPrice(double price) {
-        
+
+    }
+
+    public String getTitle() {
+        return "";
+    }
+
+    public String getAuthor() {
+        return "";
+    }
+
+    public void setGenre(String genre) {
+    }
+
+    public Object getId() {
+        return null;
+    }
+
+    public void setPublicationDate(String publicationDate) {
     }
 }

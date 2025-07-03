@@ -1,28 +1,28 @@
 package com.org.bookstore_backend.services;
 
-import com.org.bookstore_backend.repo.Author;
+import com.org.bookstore_backend.repo.AuthorRepo;
 
 import java.util.List;
 
 public interface AuthorService {
-    public List<Author> getAuthors();
-    public Author addAuthor(Author author);
+    public List<AuthorRepo> getAuthors();
+    public AuthorRepo addAuthor(AuthorRepo author);
 
     com.org.bookstore_backend.entity.Author addAuthor(com.org.bookstore_backend.entity.Author author);
 
     public void deleteAuthor(String id);
-    public Author updateAuthor(String id, Author author);
+    public AuthorRepo updateAuthor(String id, AuthorRepo author);
 
     com.org.bookstore_backend.entity.Author updateAuthor(String id, com.org.bookstore_backend.entity.Author updatedAuthor);
 
-    public Author getAuthorById(String id);
-    public List<Author> getAuthorsByName(String name);
-    public List<Author> getAuthorsByBookTitle(String bookTitle);
-    public List<Author> getAuthorsByGenre(String genre);
+    public AuthorRepo getAuthorById(String id);
+    public List<AuthorRepo> getAuthorsByName(String name);
+    public List<AuthorRepo> getAuthorsByBookTitle(String bookTitle);
+    public List<AuthorRepo> getAuthorsByGenre(String genre);
 
-    Author saveAuthor(Author author);
+    AuthorRepo saveAuthor(AuthorRepo author);
 
     com.org.bookstore_backend.entity.Author saveAuthor(com.org.bookstore_backend.entity.Author author);
 
-    List<Author> getAllAuthors();
+    List<AuthorRepo> getAllAuthors();
 }
