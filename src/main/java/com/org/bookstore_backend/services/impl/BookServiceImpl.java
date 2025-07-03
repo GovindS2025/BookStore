@@ -1,4 +1,5 @@
 package com.org.bookstore_backend.services.impl;
+
 import com.org.bookstore_backend.entity.Book;
 import com.org.bookstore_backend.repo.BookRepo;
 import com.org.bookstore_backend.services.BookService;
@@ -11,8 +12,48 @@ import java.util.List;
 @Service
 public class BookServiceImpl implements BookService {
 
+    private final BookRepo bookRepo;
+
     @Autowired
-    private BookRepo bookRepo;
+    public BookServiceImpl(BookRepo bookRepo) {
+        this.bookRepo = bookRepo;
+    }
+
+    @Override
+    public Book saveBook(Book book) {
+        return bookRepo.save(book);
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+        return bookRepo.findAll();
+    }
+
+    @Override
+    public Book getBookById(String id) {
+        return bookRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+    }
+
+    @Override
+    public Book updateBook(String id, Book updatedBook) {
+        return bookRepo.findById(id).map(book -> {
+            book.setTitle(updatedBook.getTitle());
+            book.setAuthor(updatedBook.getAuthor());
+            book.setPrice(updatedBook.getPrice());
+            book.setGenre(updatedBook.getGenre());
+            book.setPublicationDate(updatedBook.getPublicationDate());
+            return bookRepo.save(book);
+        }).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+    }
+
+    @Override
+    public void deleteBook(String id) {
+        if (!bookRepo.existsById(id)) {
+            throw new RuntimeException("Book not found with id: " + id);
+        }
+        bookRepo.deleteById(id);
+    }
 
     @Override
     public List<Book> getBooks() {
@@ -22,30 +63,6 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book addBook(Book book) {
         return bookRepo.save(book);
-    }
-
-    @Override
-    public Book deleteBook(String id) {
-        return bookRepo.findById(id).map(book -> {
-            bookRepo.deleteById(id);
-            return book;
-        }).orElse(null);
-    }
-
-    @Override
-    public Book updateBook(String id, Book updatedBook) {
-        return bookRepo.findById(id).map(book -> {
-            book.setTitle(updatedBook.getTitle());
-            book.setAuthor(updatedBook.getAuthor());
-            book.setPrice(updatedBook.getPrice());
-            return bookRepo.save(book);
-        }).orElse(null);
-    }
-
-    @Override
-    public Book getBookById(String id) {
-        return bookRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
     }
 
     @Override

@@ -1,8 +1,1 @@
-spring:
-  application:
-    name: bookstore
-
-  data:
-    mongodb:
-      uri: mongodb+srv://${MONGO_USER}:${MONGO_PASS}@bookstore.sitltde.mongodb.net/bookstore?retryWrites=true&w=majority
-      database: bookstore
+spring.data.mongodb.uri=mongodb://localhost:27017/BookStore

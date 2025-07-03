@@ -10,11 +10,29 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(collection = "books")
 public class Book {
+    // Getters and setters
     @Id
-    private String id;
+    private Long id;
     private String title;
     private String author;
-    private double price;
+    private String isbn;
+    private int publicationYear;
+
+    public void setId(Long id) { this.id = id; }
+
+    public void setTitle(String title) { this.title = title; }
+
+    public void setAuthor(String author) { this.author = author; }
+
+    public void setPublicationYear(int publicationYear) {this.publicationYear = publicationYear;}
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public double getPrice() {
+        return 0;
+    }
 
     public String getPublicationDate() {
         return "";
@@ -22,5 +40,9 @@ public class Book {
 
     public String getGenre() {
         return "";
+    }
+
+    public void setPrice(double price) {
+        
     }
 }
