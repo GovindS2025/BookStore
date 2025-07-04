@@ -1,6 +1,7 @@
 package com.org.bookstore_backend.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "books")*/
 
 @Entity
+//this will hold data from database and each object of this class will represent a row in the database table.
+//when
 @Table(name = "books")
+//relational database
+//@ManyToMany relationship is used to define a many-to-many relationship between two entities.
+
 public class Book {
     // Getters and setters
     @Id

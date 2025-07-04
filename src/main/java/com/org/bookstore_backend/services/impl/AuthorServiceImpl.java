@@ -1,87 +1,83 @@
 package com.org.bookstore_backend.services.impl;
 
+import com.org.bookstore_backend.DTO.AuthorDTO;
+import com.org.bookstore_backend.DTO.AuthorSaveDTO;
+import com.org.bookstore_backend.DTO.AuthorUpdateDTO;
 import com.org.bookstore_backend.entity.Author;
 import com.org.bookstore_backend.repo.AuthorRepo;
 import com.org.bookstore_backend.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AuthorServiceImpl implements AuthorService {
-
-    private final AuthorRepo authorRepo;
+public class AuthorServiceIMPL implements AuthorService {
 
     @Autowired
-    public AuthorServiceImpl(AuthorRepo authorRepo) {
-        this.authorRepo = authorRepo;
+    private AuthorRepo authorRepo;
+
+
+    @Override
+    public String addAuthor(AuthorSaveDTO authorSaveDTO) {
+
+        Author author = new Author(
+                authorSaveDTO.getName()
+        );
+        AuthorRepo.save(author);
+        return author.getName();
+
     }
 
     @Override
-    public List<AuthorRepo> getAuthors() {
-        return authorRepo.findAll();
-    }
+    public List<AuthorDTO> getAllAuthor() {
 
-    @Override
-    public Author addAuthor(Author author) {
-        return authorRepo.save(author);
-    }
+        List<Author> getAuthors = authorRepo.findAll();
+        List<AuthorDTO> authorDTOList = new ArrayList<>();
 
-    @Override
-    public void deleteAuthor(String id) {
-        if (!authorRepo.existsById(id)) {
-            throw new RuntimeException("Author not found with id: " + id);
+        for(Author author : getAuthors)
+        {
+            AuthorDTO authorDTO = new AuthorDTO(
+                    author.getAuthorid(),
+                    author.getName()
+            );
+            authorDTOList.add(authorDTO);
+
         }
-        authorRepo.deleteById(id);
+        return authorDTOList;
     }
 
     @Override
-    public Author updateAuthor(String id, Author updatedAuthor) {
-        return authorRepo.findById(id).map(author -> {
-            author.setName(updatedAuthor.getName());
-            author.setBiography(updatedAuthor.getBiography());
-            author.setBirthYear(updatedAuthor.getBirthYear());
-            return authorRepo.save(author);
-        }).orElseThrow(() -> new RuntimeException("Author not found with id: " + id));
+    public String updateAuthor(AuthorUpdateDTO authorUpdateDTO) {
+
+        if (authorRepo.existsById(authorUpdateDTO.getAuthorid())) {
+            Author author = authorRepo.getById(authorUpdateDTO.getAuthorid());
+            author.setName(authorUpdateDTO.getName());
+
+            authorRepo.save(author);
+            return author.getName();
+
+        } else {
+            System.out.println("Author ID Not Exist!!!!!!!!");
+        }
+        return null;
+
     }
 
     @Override
-    public AuthorRepo getAuthorById(String id) {
-        return authorRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Author not found with id: " + id));
-    }
+    public String deleteAuthor(int id) {
 
-    @Override
-    public List<AuthorRepo> getAuthorsByName(String name) {
-        return authorRepo.findAll().stream()
-                .filter(a -> a.getName().equalsIgnoreCase(name))
-                .sorted(Comparator.comparing(Author::getName))
-                .toList();
-    }
+        if(authorRepo.existsById(id))
+        {
+            authorRepo.deleteById(id);
+        }
+        else
+        {
+            System.out.println("ID Not Found");
+        }
 
-    @Override
-    public List<AuthorRepo> getAuthorsByBookTitle(String bookTitle) {
-        return authorRepo.findAll().stream()
-                .filter(a -> a.getBiography().toLowerCase().contains(bookTitle.toLowerCase())) // placeholder
-                .toList();
-    }
 
-    @Override
-    public List<AuthorRepo> getAuthorsByGenre(String genre) {
-        return authorRepo.findAll().stream()
-                .filter(a -> a.getBiography().toLowerCase().contains(genre.toLowerCase())) // placeholder
-                .toList();
-    }
-
-    @Override
-    public Author saveAuthor(Author author) {
-        return authorRepo.save(author);
-    }
-
-    @Override
-    public List<AuthorRepo> getAllAuthors() {
-        return authorRepo.findAll();
+        return null;
     }
 }

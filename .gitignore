@@ -1,66 +1,23 @@
-#########################################
-### Build Artifacts
-#########################################
-/target/
-build/
-out/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# If you have React frontend (optional)
-frontend/node_modules/
-frontend/build/
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-#########################################
-### Environment and Secrets
-#########################################
-.env
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
 .env.local
-.env.*.local
-*.keystore
+.env.development.local
+.env.test.local
+.env.production.local
 
-#########################################
-### Logs and Temp Files
-#########################################
-*.log
-logs/
-*.tmp
-
-#########################################
-### IDE Files
-#########################################
-
-# IntelliJ
-.idea/
-*.iws
-*.iml
-*.ipr
-
-# VS Code
-.vscode/
-
-# Eclipse / STS
-.classpath
-.project
-.factorypath
-.settings/
-.apt_generated
-.springBeans
-.sts4-cache
-
-# NetBeans
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-#########################################
-### Maven Wrapper
-#########################################
-.mvn/
-!.mvn/wrapper/maven-wrapper.jar
-
-#########################################
-### Docker
-#########################################
-*.jar
-docker-compose.override.yml
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

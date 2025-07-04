@@ -5,12 +5,4 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// Optional: measure performance
-reportWebVitals(console.log);
+root.render(<App />);

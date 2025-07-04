@@ -1,64 +1,13 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: clamp(16px, 1.5vw, 18px); /* Fluid base font size */
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #222;
-  min-height: 100vh;
-  padding: 1rem;
 }
 
-/* Code blocks */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  background-color: #eee;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  margin-bottom: 0.5em;
-  color: #333;
-}
-
-/* Links */
-a {
-  color: #1976d2;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-/* Buttons */
-button {
-  font-family: inherit;
-  font-size: 1rem;
-  padding: 0.6em 1.2em;
-  border: none;
-  border-radius: 4px;
-  background-color: #1976d2;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-button:hover {
-  background-color: #1565c0;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

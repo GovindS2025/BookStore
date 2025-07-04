@@ -1,46 +1,57 @@
 package com.org.bookstore_backend.controller;
-
+import com.org.bookstore_backend.DTO.AuthorDTO;
+import com.org.bookstore_backend.DTO.AuthorSaveDTO;
+import com.org.bookstore_backend.DTO.AuthorUpdateDTO;
 import com.org.bookstore_backend.entity.Author;
 import com.org.bookstore_backend.repo.AuthorRepo;
 import com.org.bookstore_backend.services.AuthorService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
+import java.util.List;
+
+//@RestController
+//@RequestMapping("/api/authors")
+//@CrossOrigin(origins = "*")
+//@RequiredArgsConstructor
 
 @RestController
-@RequestMapping("/api/authors")
 @CrossOrigin(origins = "*")
-
+@RequestMapping("api/author")
 public class AuthorController {
 
-    private final AuthorService authorService;
 
-    public AuthorController(AuthorService authorService) {
-        this.authorService = authorService;
+    @Autowired
+    private AuthorService authorService;
+
+    @PostMapping(path = "/save")
+    public String saveAuthor(@RequestBody AuthorSaveDTO authorSaveDTO)
+    {
+        String authorname = authorService.addAuthor(authorSaveDTO);
+        return  "Added Successfully";
     }
 
-    @GetMapping
-    public Collection<AuthorRepo> getAllAuthors() {
-        return authorService.getAllAuthors();
+    @GetMapping(path = "/getAllAuthor")
+    public List<AuthorDTO> getAllAuthor()
+    {
+        List<AuthorDTO> allAuthors = authorService.getAllAuthor();
+        return allAuthors;
     }
 
-    @GetMapping("/{id}")
-    public Author getAuthorById(@PathVariable String id) {
-        return (Author) authorService.getAuthorById(id);
+    @PutMapping(path = "/update")
+    public String updateAuthor(@RequestBody AuthorUpdateDTO authorUpdateDTO)
+    {
+        String authorname = authorService.updateAuthor(authorUpdateDTO);
+        return  authorname;
+    }
+    @DeleteMapping(path = "/delete/{id}")
+    public String deleteAuthor(@PathVariable(value = "id")int id)
+    {
+        String authorname = authorService.deleteAuthor(id);
+        return  "deleteddd";
     }
 
-    @PostMapping("/add")
-    public Author addAuthor(@RequestBody Author author) {
-        return authorService.saveAuthor(author);
-    }
 
-    @PutMapping("/{id}")
-    public Author updateAuthor(@PathVariable String id, @RequestBody Author author) {
-        return (Author) authorService.updateAuthor(id, (AuthorRepo) author);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteAuthor(@PathVariable String id) {
-        authorService.deleteAuthor(id);
-    }
 }

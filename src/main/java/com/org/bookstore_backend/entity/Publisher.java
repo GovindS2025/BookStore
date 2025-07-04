@@ -1,38 +1,61 @@
 package com.org.bookstore_backend.entity;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+
 @Entity
-@Table(name = "Publishers")
-/*@Document(collection = "publishers")*/
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public class Publisher {
+@Table(name="publisher")
+public class Publisher {
 
-        @Id
-        private String id;
-        private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "publisher_id",length = 11)
+    private int publisherid;
 
-        // One publisher has many books
+    @Column(name = "name",length = 45)
+    private String name;
 
-        private List<Book> books = new ArrayList<>();
+    @OneToMany(mappedBy = "publisher")
+    private Set<Book> books;
 
-    public <E> List<E> getBookIds() {
-        List<E> bookIds = new ArrayList<>();
-        for (Book book : books) {
-            bookIds.add((E) book.getId());
-        }
-        return bookIds;
+    public Publisher(int publisherid, String name) {
+        this.publisherid = publisherid;
+        this.name = name;
+    }
+
+    public Publisher(String name) {
+        this.name = name;
+    }
+
+    public Publisher() {
+    }
+
+    public int getPublisherid() {
+        return publisherid;
+    }
+
+    public void setPublisherid(int publisherid) {
+        this.publisherid = publisherid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Publisher{" +
+                "publisherid=" + publisherid +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
-
-
