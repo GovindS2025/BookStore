@@ -2,7 +2,7 @@
 
 # 📚 BookStore Application
 
-A simple Book Store RESTful API built with **Spring Boot** and **MongoDB**.
+A simple Book Store RESTful API built with **Spring Boot**,  **postgresq** and **MongoDB**.
 
 
 ## 🚀 Features
@@ -10,9 +10,8 @@ A simple Book Store RESTful API built with **Spring Boot** and **MongoDB**.
 - 📘 Manage books (add, update, delete, view)
 - 🧾 Checkout and return books
 - ✍️ Add and view reviews
-- 💰 Track payments and overdue fees
 - 🧪 Unit tested with JUnit
-- 🔐 MongoDB integration
+- 🔐 **postgresq** integration
 - 🐳 Docker-ready (optional)
 
 ---
@@ -21,9 +20,9 @@ A simple Book Store RESTful API built with **Spring Boot** and **MongoDB**.
 
 - Java 17
 - Spring Boot 3.x
-- Spring Data MongoDB
+- Spring Data postgresq
 - Maven
-- MongoDB (local or Docker)
+- postgresq & MongoDB(optional) (local or Docker)
 - Postman (for manual API testing)
 - Docker (optional)
 
@@ -49,7 +48,7 @@ Java 17+
 
 Maven
 
-MongoDB (running locally or via Docker)
+postgresq & MongoDB (running locally or via Docker)
 
 Git (installed and configured)
 
@@ -74,12 +73,13 @@ In application.properties:
 properties
 
 spring.data.mongodb.uri=mongodb://localhost:27017/bookstore
-Make sure MongoDB is running locally.
+Make sure postgresq or MongoDB is running locally.
 You can also use Docker to spin up MongoDB:
 
 bash
 
 docker run -d -p 27017:27017 --name mongodb mongo
+
 🔌 API Endpoints (Sample)
 Method	Endpoint	Description
 GET	/api/books	List all books
