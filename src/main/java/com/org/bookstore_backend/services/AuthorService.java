@@ -15,7 +15,5 @@ public interface AuthorService {
 
     String updateAuthor(AuthorUpdateDTO authorUpdateDTO);
 
-    String updateAuthor(AuthorUpdateDTO authorUpdateDTO);
-
-    String deleteAuthor(int id);
+    String deleteAuthor(Long id);
 }

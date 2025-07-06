@@ -72,7 +72,7 @@ services:
     environment:
       POSTGRES_USER: my-user
       POSTGRES_PASSWORD: user-password
-      POSTGRES_DB: my-db
+      POSTGRES_DB: BookStore
 
   postgres-client:
     image: postgres:14

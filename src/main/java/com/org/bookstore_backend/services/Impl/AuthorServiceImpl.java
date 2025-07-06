@@ -1,4 +1,4 @@
-package com.org.bookstore_backend.services.impl;
+package com.org.bookstore_backend.services.Impl;
 
 import com.org.bookstore_backend.DTO.AuthorDTO;
 import com.org.bookstore_backend.DTO.AuthorSaveDTO;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AuthorServiceIMPL implements AuthorService {
+public class AuthorServiceImpl implements AuthorService {
 
     @Autowired
     private AuthorRepo authorRepo;
@@ -25,7 +25,7 @@ public class AuthorServiceIMPL implements AuthorService {
         Author author = new Author(
                 authorSaveDTO.getName()
         );
-        AuthorRepo.save(author);
+        authorRepo.save(author);
         return author.getName();
 
     }
@@ -39,7 +39,7 @@ public class AuthorServiceIMPL implements AuthorService {
         for(Author author : getAuthors)
         {
             AuthorDTO authorDTO = new AuthorDTO(
-                    author.getAuthorid(),
+                    Math.toIntExact(author.getAuthorid()),
                     author.getName()
             );
             authorDTOList.add(authorDTO);
@@ -51,8 +51,8 @@ public class AuthorServiceIMPL implements AuthorService {
     @Override
     public String updateAuthor(AuthorUpdateDTO authorUpdateDTO) {
 
-        if (authorRepo.existsById(authorUpdateDTO.getAuthorid())) {
-            Author author = authorRepo.getById(authorUpdateDTO.getAuthorid());
+        if (authorRepo.existsById((long) authorUpdateDTO.getAuthorid())) {
+            Author author = authorRepo.getById((long) authorUpdateDTO.getAuthorid());
             author.setName(authorUpdateDTO.getName());
 
             authorRepo.save(author);
@@ -66,7 +66,7 @@ public class AuthorServiceIMPL implements AuthorService {
     }
 
     @Override
-    public String deleteAuthor(int id) {
+    public String deleteAuthor(Long id) {
 
         if(authorRepo.existsById(id))
         {
@@ -76,7 +76,6 @@ public class AuthorServiceIMPL implements AuthorService {
         {
             System.out.println("ID Not Found");
         }
-
 
         return null;
     }

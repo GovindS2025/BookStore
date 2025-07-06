@@ -42,7 +42,7 @@ public class PostgresDBsource implements Serializable,Cloneable {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/my-db");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/BookStore");
         dataSource.setUsername("my-user");
         dataSource.setPassword("user-password");
         return dataSource;

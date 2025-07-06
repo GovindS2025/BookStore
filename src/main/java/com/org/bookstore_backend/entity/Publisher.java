@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -57,5 +58,22 @@ public class Publisher {
                 "publisherid=" + publisherid +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void setId(String id) {
+        try {
+            this.publisherid = Integer.parseInt(id);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid publisher ID: " + id, e);
+        }
+    }
+
+    public <E> List<E> getBookIds() {
+        if (books == null) {
+            return List.of();
+        }
+        return (List<E>) books.stream()
+                .map(Book::getBookid)
+                .toList();
     }
 }

@@ -1,10 +1,15 @@
 package com.org.bookstore_backend.services;
 
+import com.org.bookstore_backend.DTO.BookDTO;
+import com.org.bookstore_backend.DTO.BookSaveDTO;
+import com.org.bookstore_backend.DTO.BookUpdateDTO;
 import com.org.bookstore_backend.entity.Book;
 
 import java.util.List;
 
 public interface BookService {
+
+
     Book saveBook(Book book);
     List<Book> getAllBooks();
     Book getBookById(Long id);
@@ -30,4 +35,12 @@ public interface BookService {
     List<Book> getBooksByPriceRange(double minPrice, double maxPrice);
 
     List<Book> getBooksByPublicationDate(String publicationDate);
+
+    String updateBook(BookUpdateDTO bookUpdateDTO);
+
+    List<BookDTO> getAllBook();
+
+   String  deleteBook(int id);
+
+    String addBook(BookSaveDTO bookSaveDTO);
 }

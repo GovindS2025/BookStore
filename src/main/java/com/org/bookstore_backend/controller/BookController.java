@@ -1,7 +1,11 @@
 package com.org.bookstore_backend.controller;
 
+import com.org.bookstore_backend.DTO.BookDTO;
+import com.org.bookstore_backend.DTO.BookSaveDTO;
+import com.org.bookstore_backend.DTO.BookUpdateDTO;
 import com.org.bookstore_backend.entity.Book;
 import com.org.bookstore_backend.services.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,36 +14,37 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/books")
 @CrossOrigin(origins = "*")
+
+
 public class BookController {
-
-    private final BookService bookService;
-
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
+    @Autowired
+    private BookService bookService;
+    @PostMapping(path = "/save")
+    public String saveBook(@RequestBody BookSaveDTO bookSaveDTO)
+    {
+        // Convert DTO to entity
+        Book book = new Book();
+        book.setTitle(bookSaveDTO.getTitle());
+        // set other fields...
+        // save book and return result
+        return  "Added Successfully";
     }
-
-    @GetMapping
-    public List<Book> getAllBooks() {
-        return bookService.getAllBooks();
+    @GetMapping(path = "/getAllBook")
+    public List<BookDTO> getAllBook()
+    {
+        List<BookDTO> allBooks = bookService.getAllBook();
+        return allBooks;
     }
-
-    @GetMapping("/{id}")
-    public Book getBookById(@PathVariable Long id) {
-        return bookService.getBookById(id);
+    @PutMapping(path = "/update")
+    public String updateBook(@RequestBody BookUpdateDTO bookUpdateDTO)
+    {
+        String bookname = bookService.updateBook(bookUpdateDTO);
+        return  bookname;
     }
-
-    @PostMapping("/add")
-    public Book addBook(@RequestBody Book book){
-        return bookService.saveBook(book);
-    }
-
-    @PutMapping("/{id}")
-    public Book updateBook(@PathVariable Long id, @RequestBody Book book) {
-        return bookService.updateBook(id, book);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteBook(@PathVariable Long id) {
-        bookService.deleteBook(id);
+    @DeleteMapping(path = "/delete/{id}")
+    public String deleteBook(@PathVariable(value = "id") int id)
+    {
+        bookService.deleteBook((int) id);
+        return  "deleteddd";
     }
 }

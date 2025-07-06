@@ -36,18 +36,16 @@ public class AuthorController {
     @GetMapping(path = "/getAllAuthor")
     public List<AuthorDTO> getAllAuthor()
     {
-        List<AuthorDTO> allAuthors = authorService.getAllAuthor();
-        return allAuthors;
+        return authorService.getAllAuthor();
     }
 
     @PutMapping(path = "/update")
     public String updateAuthor(@RequestBody AuthorUpdateDTO authorUpdateDTO)
     {
-        String authorname = authorService.updateAuthor(authorUpdateDTO);
-        return  authorname;
+        return authorService.updateAuthor(authorUpdateDTO);
     }
     @DeleteMapping(path = "/delete/{id}")
-    public String deleteAuthor(@PathVariable(value = "id")int id)
+    public String deleteAuthor(@PathVariable(value = "id") Long id)
     {
         String authorname = authorService.deleteAuthor(id);
         return  "deleteddd";

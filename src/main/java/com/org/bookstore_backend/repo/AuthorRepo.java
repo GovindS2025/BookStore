@@ -1,17 +1,8 @@
 package com.org.bookstore_backend.repo;
 
+import com.org.bookstore_backend.entity.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-/*public interface Author extends MongoRepository<Author, String> {
-}*/
-public interface AuthorRepo extends JpaRepository<AuthorRepo, String> {
-    String getName();
-
-    void setName(String name);
-
-    void setBiography(String biography);
-
-    void setBirthYear(int birthYear);
-
-    String getBiography();
+public interface AuthorRepo extends JpaRepository<Author, Long> {
+    // Add custom query methods if needed
 }
