@@ -1,11 +1,14 @@
 package com.org.bookstore_backend.entity;
 import java.util.Set;
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.Setter;
 import org.apache.catalina.User;
 //import com.org.bookstore_backend.entity.Fine;
 import java.time.LocalDate;
 
+@Setter
+@Getter
 @Entity
 @Table(name="borrow")
 public class Borrow {
@@ -25,7 +28,6 @@ public class Borrow {
     @Column(name = "borrowDate")
     private LocalDate borrowDate;
 
-    @Setter
     @Column(name = "returnDate")
     private LocalDate returnDate;
 
@@ -54,42 +56,6 @@ public class Borrow {
     public Borrow() {
     }
 
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public LocalDate getBorrowDate() {
-        return borrowDate;
-    }
-
-    public void setBorrowDate(LocalDate borrowDate) {
-        this.borrowDate = borrowDate;
-    }
-
-    public LocalDate getReturnDate() {
-        return returnDate;
-    }
 
     @Override
     public String toString() {

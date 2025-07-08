@@ -48,9 +48,7 @@ private PublisherRepo publisherRepo;
 
     @Override
     public String addPublisher(PublisherSaveDTO publisherSaveDTO) {
-        Publisher publisher = new Publisher(
-                publisherSaveDTO.getName()
-        );
+        Publisher publisher = new Publisher(publisherSaveDTO.getName());
         publisherRepo.save(publisher);
         return publisher.getName();
     }

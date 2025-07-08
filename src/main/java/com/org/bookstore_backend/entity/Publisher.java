@@ -1,9 +1,6 @@
 package com.org.bookstore_backend.entity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import lombok.*;
 
 import java.util.List;
 import java.util.Set;
@@ -12,44 +9,43 @@ import java.util.Set;
 @Table(name="publisher")
 public class Publisher {
 
+
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "publisher_id",length = 11)
     private int publisherid;
 
+    @Setter
+    @Getter
     @Column(name = "name",length = 45)
     private String name;
 
     @OneToMany(mappedBy = "publisher")
     private Set<Book> books;
 
-    public Publisher(int publisherid, String name) {
+    public Publisher(int publisherid, String name, Set<Book> books) {
         this.publisherid = publisherid;
         this.name = name;
+        this.books = books;
+    }
+
+    public Publisher(String name, Set<Book> books) {
+        this.name = name;
+        this.books = books;
+    }
+
+    public Publisher(Set<Book> books) {
+        this.books = books;
     }
 
     public Publisher(String name) {
         this.name = name;
     }
 
-    public Publisher() {
-    }
-
-    public int getPublisherid() {
-        return publisherid;
-    }
-
-    public void setPublisherid(int publisherid) {
-        this.publisherid = publisherid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public void setPublisherid(int publisherid) {
+//        this.publisherid = publisherid;
+//    }
 
 
     @Override
@@ -76,4 +72,5 @@ public class Publisher {
                 .map(Book::getBookid)
                 .toList();
     }
+
 }

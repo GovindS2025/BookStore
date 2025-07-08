@@ -13,7 +13,7 @@ import java.util.Set;
 public class Book {
 
     // Getters and setters
-    @jakarta.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "book_id", length = 11)
     private int bookid;

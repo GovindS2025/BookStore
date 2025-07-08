@@ -32,14 +32,12 @@ public class BookController {
     @GetMapping(path = "/getAllBook")
     public List<BookDTO> getAllBook()
     {
-        List<BookDTO> allBooks = bookService.getAllBook();
-        return allBooks;
+        return bookService.getAllBook();
     }
     @PutMapping(path = "/update")
     public String updateBook(@RequestBody BookUpdateDTO bookUpdateDTO)
     {
-        String bookname = bookService.updateBook(bookUpdateDTO);
-        return  bookname;
+        return bookService.updateBook(bookUpdateDTO);
     }
     @DeleteMapping(path = "/delete/{id}")
     public String deleteBook(@PathVariable(value = "id") int id)
