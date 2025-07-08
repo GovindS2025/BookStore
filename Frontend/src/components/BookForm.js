@@ -10,6 +10,26 @@ import {
   Paper,
   Stack
 } from '@mui/material';
+import { styled, keyframes } from '@mui/system';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const AnimatedPaper = styled(Paper)(({ theme }) => ({
+  animation: `${fadeIn} 0.8s ease-out`,
+  padding: theme.spacing(4),
+  marginTop: theme.spacing(4),
+  backgroundColor: '#f3f4ff',
+  borderRadius: theme.shape.borderRadius,
+}));
 
 const BookForm = () => {
   const { id } = useParams();
@@ -38,14 +58,14 @@ const BookForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setBook({ ...book, [name]: value });
+    setBook(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const request = id
       ? axiosInstance.put(`/${id}`, book)
-      : axiosInstance.post('/', book);
+      : axiosInstance.post('/save', book);
 
     request
       .then(() => navigate('/'))
@@ -54,8 +74,8 @@ const BookForm = () => {
 
   return (
     <Container maxWidth="sm">
-      <Paper elevation={3} sx={{ padding: 4, marginTop: 4 }}>
-        <Typography variant="h5" gutterBottom>
+      <AnimatedPaper elevation={3}>
+        <Typography variant="h5" gutterBottom sx={{ color: '#4a148c' }}>
           {id ? 'Edit Book' : 'Add Book'}
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate>
@@ -67,6 +87,7 @@ const BookForm = () => {
               onChange={handleChange}
               required
               fullWidth
+              color="secondary"
             />
             <TextField
               label="Author"
@@ -75,6 +96,7 @@ const BookForm = () => {
               onChange={handleChange}
               required
               fullWidth
+              color="secondary"
             />
             <TextField
               label="ISBN"
@@ -83,6 +105,7 @@ const BookForm = () => {
               onChange={handleChange}
               required
               fullWidth
+              color="secondary"
             />
             <TextField
               label="Publication Year"
@@ -92,13 +115,19 @@ const BookForm = () => {
               onChange={handleChange}
               required
               fullWidth
+              color="secondary"
             />
-            <Button variant="contained" color="primary" type="submit">
+            <Button
+              variant="contained"
+              color="secondary"
+              type="submit"
+              sx={{ fontWeight: 'bold' }}
+            >
               Save
             </Button>
           </Stack>
         </Box>
-      </Paper>
+      </AnimatedPaper>
     </Container>
   );
 };

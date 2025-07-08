@@ -3,7 +3,9 @@ package com.org.bookstore_backend.services.Impl;
 import com.org.bookstore_backend.DTO.BookDTO;
 import com.org.bookstore_backend.DTO.BookSaveDTO;
 import com.org.bookstore_backend.DTO.BookUpdateDTO;
+import com.org.bookstore_backend.entity.Author;
 import com.org.bookstore_backend.entity.Book;
+import com.org.bookstore_backend.entity.Publisher;
 import com.org.bookstore_backend.repo.AuthorRepo;
 import com.org.bookstore_backend.repo.BookRepo;
 import com.org.bookstore_backend.repo.PublisherRepo;
@@ -30,15 +32,22 @@ public class BookServiceImpl implements BookService {
     @Override
     public String addBook(BookSaveDTO bookSaveDTO) {
 
+        Author author = authorRepo.findById(bookSaveDTO.getAuthor_id())
+                .orElseThrow(() -> new RuntimeException("Author not found"));
+
+        Publisher publisher = publisherRepo.findById(bookSaveDTO.getPublisher_id())
+                .orElseThrow(() -> new RuntimeException("Publisher not found"));
+
         Book book = new Book(
                 bookSaveDTO.getTitle(),
-                authorRepo.getById((long) bookSaveDTO.getAuthor_id()),
-                publisherRepo.getById(String.valueOf(bookSaveDTO.getPublisher_id()))
-
+                bookSaveDTO.getIsbn(),
+                bookSaveDTO.getPrice(),
+                author,
+                publisher
         );
+
         bookRepo.save(book);
         return book.getTitle();
-
     }
 
     @Override

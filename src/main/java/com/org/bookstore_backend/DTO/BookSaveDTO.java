@@ -12,4 +12,8 @@ public class BookSaveDTO {
     private String title;
     private int author_id;
     private  int publisher_id;
+
+    public String getIsbn() {
+        return null; // Placeholder for ISBN, as it is not provided in the original code
+    }
 }

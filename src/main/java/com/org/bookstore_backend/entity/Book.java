@@ -1,79 +1,60 @@
 package com.org.bookstore_backend.entity;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 
+@Setter
+@Getter
 @Entity
-@Table(name="book")
+@Table(name = "book")
 public class Book {
 
-    @Id
+    // Getters and setters
+    @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "book_id",length = 11)
+    @Column(name = "book_id", length = 11)
     private int bookid;
 
-    @Column(name = "book_title",length = 45)
+    @Column(name = "book_title", length = 45)
     private String title;
+
+    @Column(name = "isbn", length = 20)
+    private String isbn;
+
+    @Column(name = "price")
+    private double price;
 
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
 
-
     @ManyToOne
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
-
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<Borrow> borrows;
 
-    public Book(int bookid, String title, Author author, Publisher publisher) {
+    // Constructors
+    public Book() {}
+
+    public Book(int bookid, String title, String isbn, double price, Author author, Publisher publisher) {
         this.bookid = bookid;
         this.title = title;
+        this.isbn = isbn;
+        this.price = price;
         this.author = author;
         this.publisher = publisher;
     }
 
-
-
-    public Book() {
-    }
-
-    public Book(String title, Author byId, Publisher byId1) {
-    }
-
-    public int getBookid() {
-        return bookid;
-    }
-
-    public void setBookid(int bookid) {
-        this.bookid = bookid;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+    public Book(String title, String isbn, double price, Author author, Publisher publisher) {
         this.title = title;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
+        this.isbn = isbn;
+        this.price = price;
         this.author = author;
-    }
-
-    public Publisher getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
     }
 
@@ -82,21 +63,10 @@ public class Book {
         return "Book{" +
                 "bookid=" + bookid +
                 ", title='" + title + '\'' +
-                ", author=" + author +
-                ", publisher=" + publisher +
+                ", isbn='" + isbn + '\'' +
+                ", price=" + price +
+                ", author=" + (author != null ? author.getName() : null) +
+                ", publisher=" + (publisher != null ? publisher.getName() : null) +
                 '}';
-    }
-
-    public double getPrice() {
-        return getPrice();
-    }
-
-    public Object getIsbn() {
-        return getIsbn();
-    }
-
-    public void setIsbn(Object isbn) {
-        // This method is intentionally left blank as the original code does not provide an implementation.
-        return;
     }
 }
