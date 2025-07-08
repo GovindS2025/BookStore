@@ -16,4 +16,8 @@ public class BookSaveDTO {
     public String getIsbn() {
         return null; // Placeholder for ISBN, as it is not provided in the original code
     }
+
+    public double getPrice() {
+        return 0.0; // Placeholder for price, as it is not provided in the original code
+    }
 }

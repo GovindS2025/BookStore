@@ -32,10 +32,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public String addBook(BookSaveDTO bookSaveDTO) {
 
-        Author author = authorRepo.findById(bookSaveDTO.getAuthor_id())
+        Author author = authorRepo.findById((long) bookSaveDTO.getAuthor_id())
                 .orElseThrow(() -> new RuntimeException("Author not found"));
 
-        Publisher publisher = publisherRepo.findById(bookSaveDTO.getPublisher_id())
+        Publisher publisher = publisherRepo.findById(String.valueOf(bookSaveDTO.getPublisher_id()))
                 .orElseThrow(() -> new RuntimeException("Publisher not found"));
 
         Book book = new Book(
