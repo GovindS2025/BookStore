@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class BookServiceImpl implements BookService {
-
 
     @Autowired
     private AuthorRepo authorRepo;
@@ -28,48 +28,49 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookRepo bookRepo;
 
-
     @Override
-    public String addBook(BookSaveDTO bookSaveDTO) {
+    public String saveBook(BookSaveDTO dto) {
+      //Author author = authorRepo.findById(dto.getAuthor_id())
+       //         .orElseThrow(() -> new RuntimeException("Author not found"));
 
-        Author author = authorRepo.findById((long) bookSaveDTO.getAuthor_id())
-                .orElseThrow(() -> new RuntimeException("Author not found"));
+       // Publisher publisher = publisherRepo.findById(dto.getPublisher_id())
+         //       .orElseThrow(() -> new RuntimeException("Publisher not found"));
 
-        Publisher publisher = publisherRepo.findById(String.valueOf(bookSaveDTO.getPublisher_id()))
-                .orElseThrow(() -> new RuntimeException("Publisher not found"));
+        Book book = new Book();
+        Author author = new Author();
+        book.setTitle(dto.getTitle());
 
-        Book book = new Book(
-                bookSaveDTO.getTitle(),
-                bookSaveDTO.getIsbn(),
-                bookSaveDTO.getPrice(),
-                author,
-                publisher
-        );
+        author.setAuthorid(dto.getAuthor().getAuthorid());
+        author.setName(dto.getAuthor().getName());
+        book.setAuthor(author);
+       // book.setPublisher(publisher);
+        book.setIsbn(dto.getIsbn());
+        book.setPublicationYear(dto.getPublicationYear());
+        book.setPrice(dto.getPrice());
 
         bookRepo.save(book);
-        return book.getTitle();
+        return book.getTitle()+" added successfully";
     }
 
     @Override
     public List<BookDTO> getAllBook() {
-
-        List<Book> getBooks = bookRepo.findAll();
+        List<Book> books = bookRepo.findAll();
         List<BookDTO> bookDTOList = new ArrayList<>();
 
-        for(Book book : getBooks)
-        {
-            BookDTO bookDTO = new BookDTO(
-                    book.getBookid(),
-                    book.getTitle(),
-                    book.getAuthor(),
-                    book.getPublisher()
-
-            );
-            bookDTOList.add(bookDTO);
-
+        for (Book book : books) {
+            BookDTO dto = new BookDTO();
+            dto.setId(book.getBookid());
+            dto.setTitle(book.getTitle());
+           // dto.setAuthor(book.getAuthor() != null ? book.getAuthor().getName() : "Unknown");
+           // dto.setPublisher(book.getPublisher() != null ? book.getPublisher().getName() : "Unknown");
+            dto.setIsbn(book.getIsbn());
+            dto.setPublicationYear(book.getPublicationYear());
+            dto.setPrice(book.getPrice());
+            dto.setBorrowed(book.getBorrows() != null && !book.getBorrows().isEmpty());
+            bookDTOList.add(dto);
         }
-        return bookDTOList;
 
+        return bookDTOList;
     }
 
     @Override
@@ -148,36 +149,26 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public String updateBook(BookUpdateDTO bookUpdateDTO) {
+    public String updateBook(BookUpdateDTO dto) {
+       // Long bookId = dto.getBookid();
+       // if (bookRepo.existsById(bookId)) {
+         //   Book book = bookRepo.findById(bookId).orElse(null);
+//            if (book != null) {
+//                book.setTitle(dto.getTitle());
+//                bookRepo.save(book);
+//                return book.getTitle();
+//            }
 
-        if(bookRepo.existsById(bookUpdateDTO.getBookid())) {
-            Book book = bookRepo.getReferenceById(bookUpdateDTO.getBookid());
-            book.setTitle(bookUpdateDTO.getTitle());
-            bookRepo.save(book);
-            return book.getTitle();
-        }
-        else
-        {
-            System.out.println("Book ID Not Found");
-        }
-
-
-        return null;
+        return "Book ID Not Found";
     }
 
     @Override
     public String deleteBook(int id) {
-
-        if(bookRepo.existsById(String.valueOf(id)))
-        {
-            bookRepo.deleteById(String.valueOf(id));
-        }
-        else
-        {
-            System.out.println("Book ID Not Found");
-        }
-        return null;
+//        Long bookId = (long) id;
+//        if (bookRepo.existsById(bookId)) {
+//            bookRepo.deleteById(bookId);
+//            return "Deleted Successfully";
+//        }
+        return "Book ID Not Found";
     }
-
-
 }

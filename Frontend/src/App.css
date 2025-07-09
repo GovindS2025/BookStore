@@ -1,7 +1,40 @@
+/* ====================
+   General App Layout
+==================== */
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
+/* ====================
+   Navigation Styles
+==================== */
+.nav {
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #9c27b0; /* Deep Purple hover */
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  color: #6a1b9a;
+  text-decoration: underline;
+}
+
+/* ====================
+   Optional: React Logo
+==================== */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,6 +46,18 @@
   }
 }
 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ====================
+   Unused (Safe to Remove)
+==================== */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,13 +71,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

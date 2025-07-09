@@ -6,6 +6,7 @@ import com.org.bookstore_backend.DTO.BookUpdateDTO;
 import com.org.bookstore_backend.entity.Book;
 import com.org.bookstore_backend.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,17 +20,50 @@ import java.util.List;
 public class BookController {
     @Autowired
     private BookService bookService;
-    @PostMapping(path = "/save")
-    public String saveBook(@RequestBody BookSaveDTO bookSaveDTO)
-    {
-        // Convert DTO to entity
-        Book book = new Book();
-        book.setTitle(bookSaveDTO.getTitle());
-        // set other fields...
-        // save book and return result
-        return  "Added Successfully";
+
+   @PostMapping(path = "/save")
+ public String saveBook(@RequestBody BookSaveDTO bookSaveDTO)
+{
+    bookService.saveBook(bookSaveDTO);
+      return  "Added Successfully";
+//    }
+
+//         @PostMapping("")
+//        public ResponseEntity<String> saveBook(@RequestBody BookSaveDTO bookSaveDTO) {
+//          Book book = new Book();
+
+//        book.setTitle(bookSaveDTO.getTitle());
+//        book.setAuthor(bookSaveDTO.getAuthor());
+//        book.setIsbn(bookSaveDTO.getIsbn());
+//        book.setPublicationYear(bookSaveDTO.getPublicationYear());
+//
+//
+//
+//         private Long id;
+//        book.setPrice(bookSaveDTO.getPrice());
+//        private String title;
+//        private int author_id;
+//        private String isbn;
+//        private int publicationYear;
+//        private double price;
+//        private String publisher;
+//        private boolean borrowed;
+//
+
+
+
+
+
+
+
+
+
+
+       // bookService.saveBook(book);
+      //  return ResponseEntity.ok("Added Successfully");
     }
-    @GetMapping(path = "/getAllBook")
+//    @GetMapping(path = "/getAllBook")
+    @GetMapping(" ")
     public List<BookDTO> getAllBook()
     {
         return bookService.getAllBook();
@@ -39,10 +73,17 @@ public class BookController {
     {
         return bookService.updateBook(bookUpdateDTO);
     }
-    @DeleteMapping(path = "/delete/{id}")
-    public String deleteBook(@PathVariable(value = "id") int id)
-    {
-        bookService.deleteBook((int) id);
-        return  "deleteddd";
-    }
+//    @DeleteMapping(path = "/delete/{id}")
+//
+//    public String deleteBook(@PathVariable(value = "id") int id)
+//    {
+//        bookService.deleteBook((int) id);
+//        return  "deleteddd";
+//    }
+@DeleteMapping("/{id}")
+public ResponseEntity<Void> deleteBook(@PathVariable("id") int id) {
+    bookService.deleteBook(id);
+    return ResponseEntity.noContent().build();
+}
+
 }

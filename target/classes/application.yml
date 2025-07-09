@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/BookStore
-    username: admin
-    password: 
+    username: postgres
+    password: Wrong123
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,3 +14,4 @@ spring:
   redis:
     host: localhost
     port: 6379
+

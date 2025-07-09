@@ -1,23 +1,22 @@
 package com.org.bookstore_backend.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.org.bookstore_backend.entity.Author;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Data
 public class BookSaveDTO {
 
+    private Long id;
     private String title;
-    private int author_id;
-    private  int publisher_id;
+    private AuthorDTO author;
+    private String isbn;
+    private int publicationYear;
+    private double price;
+    private PublisherDTO publisher;
+    private boolean borrowed;
 
-    public String getIsbn() {
-        return null; // Placeholder for ISBN, as it is not provided in the original code
-    }
-
-    public double getPrice() {
-        return 0.0; // Placeholder for price, as it is not provided in the original code
-    }
 }

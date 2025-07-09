@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 public class AuthorDTO {
 
 
-    private int authorid;
+    private Long authorid;
     private String name;
 }

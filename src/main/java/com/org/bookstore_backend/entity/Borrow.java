@@ -3,7 +3,6 @@ import java.util.Set;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.catalina.User;
 //import com.org.bookstore_backend.entity.Fine;
 import java.time.LocalDate;
 

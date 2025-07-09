@@ -16,20 +16,23 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "book_id", length = 11)
-    private int bookid;
+    private Long bookid;
 
     @Column(name = "book_title", length = 45)
     private String title;
 
-    @Column(name = "isbn", length = 20)
-    private String isbn;
-
-    @Column(name = "price")
-    private double price;
-
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
+
+    @Column(name = "isbn", length = 20)
+    private String isbn;
+
+    @Column(name = "publication_year", length = 4)
+    private int publicationYear;
+
+    @Column(name = "price")
+    private double price;
 
     @ManyToOne
     @JoinColumn(name = "publisher_id")
@@ -39,34 +42,37 @@ public class Book {
     private Set<Borrow> borrows;
 
     // Constructors
-    public Book() {}
+    public Book() {
+    }
 
-    public Book(int bookid, String title, String isbn, double price, Author author, Publisher publisher) {
+    public Book(Long bookid, String title, String isbn, Author author, Publisher publisher, int publicationYear, double price, Set<Borrow> borrows) {
         this.bookid = bookid;
         this.title = title;
-        this.isbn = isbn;
-        this.price = price;
         this.author = author;
+        this.isbn = isbn;
+        this.publicationYear = publicationYear;
         this.publisher = publisher;
+        this.price = price;
+        this.borrows = borrows;
     }
 
-    public Book(String title, String isbn, double price, Author author, Publisher publisher) {
-        this.title = title;
-        this.isbn = isbn;
-        this.price = price;
-        this.author = author;
-        this.publisher = publisher;
-    }
 
     @Override
     public String toString() {
         return "Book{" +
                 "bookid=" + bookid +
                 ", title='" + title + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", price=" + price +
                 ", author=" + (author != null ? author.getName() : null) +
-                ", publisher=" + (publisher != null ? publisher.getName() : null) +
+                ", isbn='" + isbn + '\'' +
+                ", publicationYear=" + publicationYear +
+                ", price=" + price + '\'' +
+                ", publisher=" + (author != null ? author.getName() : null) +
+                ", borrows=" + (borrows != null ? borrows.size() : 0) +
                 '}';
+    }
+
+
+    public void setPublicationYear(Object publicationYear) {
+        return ; // This method is not applicable for Book entity
     }
 }

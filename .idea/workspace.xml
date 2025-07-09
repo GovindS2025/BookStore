@@ -5,21 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b62fb71d-81ce-43c5-b614-1fad80abedcf" name="Changes" comment="&quot;docker-compose check working fine connected&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/BookForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/BookForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/BookLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/BookLayout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/AuthorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/AuthorDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookSaveDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookSaveDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookUpdateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BorrowDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BorrowDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/controller/BookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Borrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Borrow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Publisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/PublisherServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/PublisherServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/repo/BookRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/repo/BookRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/BorrowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/BorrowServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookSaveDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookSaveDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookUpdateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookUpdateDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BorrowDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BorrowDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/controller/BookController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Book.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Borrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Borrow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Publisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Publisher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/PublisherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/PublisherServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/BookServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/BorrowServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/BorrowServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
@@ -32,9 +51,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
+        <option value="Dockerfile" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -68,9 +87,10 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/java/lang/Override.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/hibernate/orm/hibernate-core/6.6.18.Final/hibernate-core-6.6.18.Final.jar!/org/hibernate/exception/internal/StandardSQLExceptionConverter.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/3.5.3/spring-boot-devtools-3.5.3-sources.jar!/org/springframework/boot/devtools/restart/RestartLauncher.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/3.5.1/spring-data-commons-3.5.1-sources.jar!/org/springframework/data/repository/CrudRepository.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-mongodb/4.5.1/spring-data-mongodb-4.5.1.jar!/org/springframework/data/mongodb/repository/MongoRepository.class" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/Config/MongoDBSource.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -90,31 +110,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BookstoreApplication.executor": "Run",
-    "Docker.Dockerfile.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Maven.BookStore [clean].executor": "Run",
-    "Maven.BookStore [install].executor": "Run",
-    "Maven.BookStore [verify].executor": "Run",
-    "Maven.Unknown [clean].executor": "Run",
-    "Maven.Unknown [install].executor": "Run",
-    "Maven.bookstore [clean].executor": "Run",
-    "Maven.bookstore [install].executor": "Run",
-    "Maven.spring-boot-app [clean].executor": "Run",
-    "Maven.spring-boot-app [install].executor": "Run",
-    "Maven.spring-boot-app [test].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "features/cr101",
-    "last_opened_file_path": "C:/Users/govin/Downloads/BookStore_FullStack-main/test/Frontend",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BookstoreApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BookStore [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BookStore [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BookStore [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Unknown [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Unknown [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.bookstore [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.bookstore [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-app [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-app [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-app [test].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/cr101&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/govin/Downloads/BookStore_FullStack-main/test/Frontend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.org.bookstore_backend.Config" />
@@ -138,7 +159,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.org.bookstore_backend.BookstoreApplication" />
-      <module name="BookStore" />
+      <module name="spring-boot-app" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.org.bookstore_backend.*" />
@@ -217,9 +238,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BookstoreApplication" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="Application.BookstoreApplication" />
       </list>
     </recent_temporary>
   </component>

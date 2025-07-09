@@ -1,6 +1,5 @@
 package com.org.bookstore_backend.entity;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Order;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "app_user")
 public class User {
 
     @Id

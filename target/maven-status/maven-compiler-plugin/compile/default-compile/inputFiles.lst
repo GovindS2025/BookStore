@@ -11,6 +11,7 @@ C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\boo
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\AuthorUpdateDTO.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\BookDTO.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\BookSaveDTO.java
+C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\BookSearchDTO.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\BookUpdateDTO.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\BorrowDTO.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\BorrowSaveDTO.java
@@ -19,6 +20,7 @@ C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\boo
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\PublisherDTO.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\PublisherSaveDTO.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\PublisherUpdateDTO.java
+C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\DTO\UserDTO.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\entity\Author.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\entity\Book.java
 C:\Users\govin\Downloads\BookStore_FullStack-main\test\src\main\java\com\org\bookstore_backend\entity\Borrow.java

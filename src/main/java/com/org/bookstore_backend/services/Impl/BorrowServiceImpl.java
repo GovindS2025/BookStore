@@ -1,4 +1,5 @@
 package com.org.bookstore_backend.services.Impl;
+import com.org.bookstore_backend.entity.User;
 import com.org.bookstore_backend.DTO.BorrowDTO;
 import com.org.bookstore_backend.DTO.BorrowSaveDTO;
 import com.org.bookstore_backend.DTO.BorrowUpdateDTO;
@@ -7,7 +8,7 @@ import com.org.bookstore_backend.repo.BookRepo;
 import com.org.bookstore_backend.repo.BorrowRepo;
 import com.org.bookstore_backend.repo.UserRepo;
 import com.org.bookstore_backend.services.BorrowService;
-import org.apache.catalina.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,11 +53,11 @@ public class BorrowServiceImpl implements BorrowService {
 
         for (Borrow borrow : getBorrow) {
             BorrowDTO borrowDTO = new BorrowDTO(
-                    borrow.getId(),
-                    borrow.getBook(),
-                    borrow.getUser(),
-                    borrow.getBorrowDate(),
-                    borrow.getReturnDate()
+//                    borrow.getId(),
+//                    borrow.getBook(),
+//                    (org.apache.catalina.User) borrow.getUser(),
+//                    borrow.getBorrowDate(),
+//                    borrow.getReturnDate()
 
             );
             borrowDTOList.add(borrowDTO);

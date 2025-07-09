@@ -8,7 +8,9 @@ import {
   Button,
   Box,
   Paper,
-  Stack
+  Stack,
+  FormControlLabel,
+  Checkbox,
 } from '@mui/material';
 import { styled, keyframes } from '@mui/system';
 
@@ -38,7 +40,10 @@ const BookForm = () => {
     title: '',
     author: '',
     isbn: '',
-    publicationYear: ''
+    publicationYear: '',
+    price: '',
+    publisher: '',
+    borrowed: false,
   });
 
   const axiosInstance = axios.create({
@@ -57,8 +62,11 @@ const BookForm = () => {
   }, [id]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setBook(prev => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    setBook(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -116,6 +124,36 @@ const BookForm = () => {
               required
               fullWidth
               color="secondary"
+            />
+            <TextField
+              label="Price"
+              name="price"
+              type="number"
+              value={book.price}
+              onChange={handleChange}
+              required
+              fullWidth
+              color="secondary"
+            />
+            <TextField
+              label="Publisher"
+              name="publisher"
+              value={book.publisher}
+              onChange={handleChange}
+              required
+              fullWidth
+              color="secondary"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={book.borrowed}
+                  onChange={handleChange}
+                  name="borrowed"
+                  color="secondary"
+                />
+              }
+              label="Borrowed"
             />
             <Button
               variant="contained"
