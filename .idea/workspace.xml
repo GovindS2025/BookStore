@@ -4,43 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b62fb71d-81ce-43c5-b614-1fad80abedcf" name="Changes" comment="&quot;docker-compose check working fine connected&quot;">
+    <list default="true" id="b62fb71d-81ce-43c5-b614-1fad80abedcf" name="Changes" comment="&quot;@Transactional and actuator implemented&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/BookForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/BookForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/components/BookLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/BookLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/AuthorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/AuthorDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookSaveDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookSaveDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BookUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BorrowDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/DTO/BorrowDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Borrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/Borrow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/repo/BookRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/repo/BookRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/BorrowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/services/Impl/BorrowServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/build/static/css/main.f855e6bc.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/build/static/css/main.f855e6bc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/build/static/css/main.f855e6bc.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/build/static/css/main.f855e6bc.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/build/static/js/main.285cdae0.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/build/static/js/main.285cdae0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/build/static/js/main.285cdae0.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/build/static/js/main.285cdae0.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/build/static/js/main.285cdae0.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/build/static/js/main.285cdae0.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/3.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/5.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/6.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/node_modules/.cache/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/Config/PostgresDBsource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/org/bookstore_backend/Config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/Config/PostgresDBsource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/Config/PostgresDBsource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/Config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/Config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/AuthorDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/AuthorDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookSaveDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookSaveDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookUpdateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BookUpdateDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BorrowDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BorrowDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/controller/BookController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Borrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Borrow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Publisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/Publisher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BorrowSaveDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/DTO/BorrowSaveDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/exception/BookNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/exception/BookNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/repo/AuthorRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/repo/AuthorRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/repo/BookRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/repo/BookRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/repo/BorrowRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/repo/BorrowRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/repo/PublisherRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/repo/PublisherRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/AuthorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/AuthorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/BookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/BorrowService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/BorrowService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/AuthorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/AuthorServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/BookServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/BorrowServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/BorrowServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/PublisherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/Impl/PublisherServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/PublisherService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/services/PublisherService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/org/bookstore_backend/util/ExtractJWT.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring-boot-app-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,12 +137,14 @@
     &quot;Maven.bookstore [install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.spring-boot-app [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.spring-boot-app [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-app [site].executor&quot;: &quot;Run&quot;,
     &quot;Maven.spring-boot-app [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.spring-boot-app [validate].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;features/cr101&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/govin/Downloads/BookStore_FullStack-main/test/Frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/govin/Downloads/BookStore_FullStack-main/test/Frontend/src/asserts&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -142,13 +157,15 @@
       <recent name="com.org.bookstore_backend.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test\Frontend\src\asserts" />
       <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test\Frontend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test\Frontend" />
       <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test\Frontend\src\components" />
+      <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test\Frontend\src\asserts" />
+      <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test\Frontend\src\asserts\images" />
+      <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test\Frontend" />
       <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test\src" />
-      <recent name="C:\Users\govin\Downloads\BookStore_FullStack-main\test" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.org.bookstore_backend.services" />
@@ -349,6 +366,7 @@
     <MESSAGE value="docker-compose tested working fine &quot;" />
     <MESSAGE value="many files added in front end and backend" />
     <MESSAGE value="&quot;docker-compose check working fine connected&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;docker-compose check working fine connected&quot;" />
+    <MESSAGE value="&quot;@Transactional and actuator implemented&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;@Transactional and actuator implemented&quot;" />
   </component>
 </project>
