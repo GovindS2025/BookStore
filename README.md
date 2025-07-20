@@ -1,40 +1,44 @@
+                                                                    📚 BookStore Application
+                                          
+                                          A simple Book Store RESTful API built with Spring Boot and Postgres.
 
+🚀 Features
+📘 Manage books (add, update, delete, view)
 
-# 📚 BookStore Application
+🧾 Checkout and return books
 
-A simple Book Store RESTful API built with **Spring Boot** and **MongoDB**.
+✍️ Add and view reviews
 
+💰 Track payments and overdue fees
 
-## 🚀 Features
+🧪 Unit tested with JUnit
 
-- 📘 Manage books (add, update, delete, view)
-- 🧾 Checkout and return books
-- ✍️ Add and view reviews
-- 💰 Track payments and overdue fees
-- 🧪 Unit tested with JUnit
-- 🔐 MongoDB integration
-- 🐳 Docker-ready (optional)
+🔐 PostgreSQL integration
 
----
+🐳 Docker-ready (optional)
 
-## 🛠️ Tech Stack
+🛠️ Tech Stack
+Java 17
 
-- Java 17
-- Spring Boot 3.x
-- Spring Data MongoDB
-- Maven
-- MongoDB (local or Docker)
-- Postman (for manual API testing)
-- Docker (optional)
+Spring Boot 3.x
 
-## 📂 Project Structure
+Spring Data JPA (for PostgreSQL)
 
-```plaintext
+Maven
+
+PostgreSQL (local or Docker)
+
+Postman (for manual API testing)
+
+Docker (optional)
+
+📂 Project Structure
+
 bookstore/
 ├── src/
 │   ├── main/java/com/org/bookstore_backend/
-│   │   ├── entity/         # MongoDB documents
-│   │   ├── repo/           # Spring Data Repositories
+│   │   ├── entity/         # JPA Entities (replacing MongoDB documents)
+│   │   ├── repo/           # Spring Data JPA Repositories
 │   │   ├── services/       # Service interfaces
 │   │   ├── services/impl/  # Service implementations
 │   │   ├── controller/     # REST Controllers
@@ -49,13 +53,14 @@ Java 17+
 
 Maven
 
-MongoDB (running locally or via Docker)
+PostgreSQL (running locally or via Docker)
 
 Git (installed and configured)
 
 💻 Local Setup
 bash
-
+Copy
+Edit
 # Clone the repository
 git clone https://github.com/yourusername/bookstore.git
 cd bookstore
@@ -65,21 +70,26 @@ mvn clean install
 
 # Run the application
 mvn spring-boot:run
-App will be available at:
+The application will be available at:
 📍 http://localhost:8080
 
-🛢️ MongoDB Configuration
-In application.properties:
+🛢️ PostgreSQL Configuration
+In application.yml or application.properties:
 
 properties
-
-spring.data.mongodb.uri=mongodb://localhost:27017/bookstore
-Make sure MongoDB is running locally.
-You can also use Docker to spin up MongoDB:
+Copy
+Edit
+spring.datasource.url=jdbc:postgresql://localhost:5432/bookstore
+spring.datasource.username=yourusername
+spring.datasource.password=yourpassword
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+Make sure PostgreSQL is running locally. You can also use Docker to spin up PostgreSQL:
 
 bash
-
-docker run -d -p 27017:27017 --name mongodb mongo
+Copy
+Edit
+docker run -d -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=mysecretpassword postgres
 🔌 API Endpoints (Sample)
 Method	Endpoint	Description
 GET	/api/books	List all books
@@ -91,19 +101,14 @@ POST	/api/books/{id}/review	Add review to book
 Test all APIs using Postman.
 
 🧪 Running Tests
-bash
-
 mvn test
 Tests are written using JUnit and Mockito.
 
 🐳 Docker (Optional)
 To build and run the app in Docker:
 
-bash
-
 docker build -t bookstore-app .
 docker run -p 8080:8080 bookstore-app
-
 👨‍💻 Author
 Your Name
 Govind Singh
@@ -112,14 +117,19 @@ GitHub: @GovindS2025
 📜 License
 This project is licensed under the MIT License. See LICENSE for details.
 
----
+📌 What To Do Next
+Save the file as README.md inside your bookstore/ folder.
 
-## 📌 What To Do Next
+Commit it to Git:
 
-1. Save the file as `README.md` inside your `bookstore/` folder.
-2. Commit it to Git:
-
-```bash
 git add README.md
-git commit -m "Add project README"
+git commit -m "Updated README for PostgreSQL integration"
 git push
+Key Changes:
+MongoDB is replaced with PostgreSQL in the tech stack and database setup.
+
+Updated the application.yml or application.properties section to reflect PostgreSQL configuration.
+
+Updated the repository section from MongoDB to PostgreSQL.
+
+Adjusted API references to fit the new database system.
