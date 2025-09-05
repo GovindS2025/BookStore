@@ -1,0 +1,43 @@
+# 🏠 Local Development Configuration
+# This file is used when running locally (outside Docker)
+
+spring:
+  kafka:
+    # Local development Kafka configuration
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: bookstore-app-local
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        session.timeout.ms: 30000
+        heartbeat.interval.ms: 10000
+        max.poll.interval.ms: 300000
+        request.timeout.ms: 40000
+    producer:
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        request.timeout.ms: 40000
+        delivery.timeout.ms: 120000
+    listener:
+      ack-mode: batch
+      missing-topics-fatal: false
+      auto-startup: true
+      startup-timeout: 60000
+    enabled: true
+
+  # Local database configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/BookStore
+    username: postgres
+    password: ${DB_PASSWORD:Wrong123}
+
+  # Local Redis configuration
+  data:
+    redis:
+      host: localhost
+      port: 6379
