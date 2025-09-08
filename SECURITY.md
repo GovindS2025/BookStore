@@ -13,7 +13,7 @@
 If you discover a security vulnerability in this project, **DO NOT** create a public GitHub issue.
 
 ### 📧 **How to Report Security Issues**
-1. **Email**: Send details to `security@yourdomain.com`
+1. **Email**: Send details to `govindjsg19@gmail.com`
 2. **Subject**: `[SECURITY] BookStore Vulnerability Report`
 3. **Include**:
    - Description of the vulnerability
@@ -98,9 +98,9 @@ If you discover a security vulnerability in this project, **DO NOT** create a pu
 
 ## Contact Information
 
-- **Security Team**: security@yourdomain.com
-- **Repository Owner**: @your-github-username
-- **Emergency Contact**: +1-XXX-XXX-XXXX
+- **Security Team**: govindjsg19@gmail.com
+- **Repository Owner**: GovindS2025
+- **Emergency Contact**: +44-7776818170
 
 ---
 
