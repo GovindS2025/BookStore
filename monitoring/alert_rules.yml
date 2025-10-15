@@ -51,37 +51,37 @@ groups:
           summary: "High CPU usage"
           description: "CPU usage is {{ $value }}%"
 
-  - name: Saga Workflow
+  - name: Order Processing
     rules:
-      # Failed sagas
-      - alert: HighSagaFailureRate
-        expr: rate(saga_failed_count[5m]) > 0.1
+      # Failed orders
+      - alert: HighOrderFailureRate
+        expr: rate(orders_failed_count[5m]) > 0.1
         for: 2m
         labels:
           severity: warning
         annotations:
-          summary: "High saga failure rate"
-          description: "Saga failure rate is {{ $value }} failures per second"
+          summary: "High order failure rate"
+          description: "Order failure rate is {{ $value }} failures per second"
 
-      # Stuck sagas
-      - alert: StuckSagas
-        expr: saga_active_count > 10
+      # Stuck orders
+      - alert: StuckOrders
+        expr: orders_in_progress_count > 10
         for: 10m
         labels:
           severity: warning
         annotations:
-          summary: "Too many active sagas"
-          description: "There are {{ $value }} active sagas"
+          summary: "Too many orders in progress"
+          description: "There are {{ $value }} orders in progress"
 
-      # Saga execution time
-      - alert: SlowSagaExecution
-        expr: histogram_quantile(0.95, rate(saga_execution_time_bucket[5m])) > 30
+      # Order processing time
+      - alert: SlowOrderProcessing
+        expr: histogram_quantile(0.95, rate(order_processing_time_bucket[5m])) > 30
         for: 2m
         labels:
           severity: warning
         annotations:
-          summary: "Slow saga execution"
-          description: "95th percentile saga execution time is {{ $value }} seconds"
+          summary: "Slow order processing"
+          description: "95th percentile order processing time is {{ $value }} seconds"
 
   - name: Kafka
     rules:

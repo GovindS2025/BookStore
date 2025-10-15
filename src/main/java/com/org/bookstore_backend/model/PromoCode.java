@@ -25,34 +25,44 @@ public class PromoCode {
     private Long id;
     
     @Column(unique = true, nullable = false)
+    @Builder.Default
     private String code = "DEFAULT";
     
     @Column(nullable = false)
+    @Builder.Default
     private String description = "Promotional discount";
     
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private DiscountType discountType = DiscountType.FIXED_AMOUNT;
     
     @Column(nullable = false)
+    @Builder.Default
     private BigDecimal discountValue = BigDecimal.ZERO;
     
     @Column(nullable = false)
+    @Builder.Default
     private BigDecimal minimumOrderAmount = BigDecimal.ZERO;
     
     @Column(nullable = false)
+    @Builder.Default
     private Integer maxUses = 1000;
     
     @Column(nullable = false)
+    @Builder.Default
     private Integer currentUses = 0;
     
     @Column(nullable = false)
+    @Builder.Default
     private LocalDateTime validFrom = LocalDateTime.now();
     
     @Column(nullable = false)
+    @Builder.Default
     private LocalDateTime validUntil = LocalDateTime.now().plusYears(1);
     
     @Column(nullable = false)
+    @Builder.Default
     private boolean active = true;
     
     /**

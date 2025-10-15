@@ -144,44 +144,6 @@ public class KafkaConfig {
                 .build();
     }
 
-    @Bean
-    public NewTopic sagaEventsTopic() {
-        return TopicBuilder.name("saga.events")
-                .partitions(3)
-                .replicas(1)
-                .configs(Map.of(
-                    "retention.ms", "2592000000", // 30 days
-                    "cleanup.policy", "delete",
-                    "compression.type", "snappy"
-                ))
-                .build();
-    }
-
-    @Bean
-    public NewTopic sagaCommandsTopic() {
-        return TopicBuilder.name("saga.commands")
-                .partitions(3)
-                .replicas(1)
-                .configs(Map.of(
-                    "retention.ms", "86400000", // 1 day
-                    "cleanup.policy", "delete",
-                    "compression.type", "snappy"
-                ))
-                .build();
-    }
-
-    @Bean
-    public NewTopic compensationEventsTopic() {
-        return TopicBuilder.name("compensation.events")
-                .partitions(3)
-                .replicas(1)
-                .configs(Map.of(
-                    "retention.ms", "2592000000", // 30 days
-                    "cleanup.policy", "delete",
-                    "compression.type", "snappy"
-                ))
-                .build();
-    }
 
     @Bean
     public NewTopic dlqTopic() {
@@ -196,21 +158,6 @@ public class KafkaConfig {
                 .build();
     }
 
-    @Bean
-    public NewTopic sagaStartedTopic() {
-        return TopicBuilder.name("saga.started")
-                .partitions(3)
-                .replicas(1)
-                .build();
-    }
-
-    @Bean
-    public NewTopic sagaCompletedTopic() {
-        return TopicBuilder.name("saga.completed")
-                .partitions(3)
-                .replicas(1)
-                .build();
-    }
 
     @Bean
     public NewTopic notificationsTopic() {

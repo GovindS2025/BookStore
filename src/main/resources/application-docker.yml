@@ -45,6 +45,21 @@ spring:
       auto-startup: true
       startup-timeout: 60000
     enabled: true
+  mail:
+        # username: ${MAIL_USERNAME:api}
+        # password: ${MAIL_PASSWORD:your-mail-password}
+        # from: ${MAIL_FROM:hello@demomailtrap.co}
+        username: api
+        password: your-mail-password
+        from: hello@demomailtrap.co
+        properties:
+          mail:
+            smtp:
+              auth: true
+              starttls:
+                enable: true
+              ssl:
+                trust: live.smtp.mailtrap.io
 
 # 🌐 CORS Configuration for Docker
 cors:
@@ -55,52 +70,46 @@ cors:
 
 # 🔐 JWT Configuration
 jwt:
-  secret: ${JWT_SECRET:dGhpcy1pcy1hLXN1cGVyLXNlY3JldC1rZXktdGhhdC1pcy1tb3JlLXRoYW4tMzItYnl0ZXMhISE=}
+  # secret: ${JWT_SECRET:dGhpcy1pcy1hLXN1cGVyLXNlY3JldC1rZXktdGhhdC1pcy1tb3JlLXRoYW4tMzItYnl0ZXMhISE=}
+  secret: dGhpcy1pcy1hLXN1cGVyLXNlY3JldC1rZXktdGhhdC1pcy1tb3JlLXRoYW4tMzItYnl0ZXMhISE=
   expiration: 86400000
 
 # 💳 Stripe Configuration
 stripe:
   secret:
-    key: ${STRIPE_SECRET_KEY:your-stripe-secret-key}
+    # key: ${STRIPE_SECRET_KEY:your-stripe-secret-key}
+    key: your-stripe-secret-key
     # Stripe secret key (ensure this is a test key for development)
   publishable:
-    key: ${STRIPE_PUBLISHABLE_KEY:your-stripe-publishable-key}
+    # key: ${STRIPE_PUBLISHABLE_KEY:}
+    key: your-stripe-publishable-key
     # Stripe publishable key (this is the key you can use on the frontend)
 
 # 🔑 Google OAuth Configuration
 google:
   oauth2:
     client:
-      id: ${GOOGLE_CLIENT_ID:your-google-client-id}
-      secret: ${GOOGLE_CLIENT_SECRET:your-google-client-secret}
+      # id: ${GOOGLE_CLIENT_ID:}
+      # secret: ${GOOGLE_CLIENT_SECRET:}
+      id: your-google-client-id
+      secret: your-google-client-secret
 
 # ☁️ AWS S3 Configuration
 cloud:
   aws:
     credentials:
-      access-key: ${AWS_ACCESS_KEY_ID:your-aws-access-key} # AWS access key
-      secret-key: ${AWS_SECRET_ACCESS_KEY:your-aws-secret-key} # AWS secret key (🔐 Sensitive: consider environment variables for production)
+      # access-key: ${AWS_ACCESS_KEY_ID:your-aws-access-key} # AWS access key
+      # secret-key: ${AWS_SECRET_ACCESS_KEY:your-aws-secret-key} # AWS secret key (🔐 Sensitive: consider environment variables for production)
+      access-key: your-aws-access-key
+      secret-key: your-aws-secret-key
     region:
-      static: ${AWS_REGION:eu-north-1} # AWS region
+      # static: ${AWS_REGION:eu-north-1} # AWS region
+      static: eu-north-1
     s3:
-      bucket-name: ${AWS_S3_BUCKET:bookstoreimagesbkt} # S3 bucket name
+      # bucket-name: ${AWS_S3_BUCKET:} # S3 bucket name
+      bucket-name: your-s3-bucket
 
 # 📧 Mail Configuration
-spring:
-  mail:
-    host: ${MAIL_HOST:live.smtp.mailtrap.io}
-    port: ${MAIL_PORT:587}
-    username: ${MAIL_USERNAME:api}
-    password: ${MAIL_PASSWORD:your-mail-password}
-    from: ${MAIL_FROM:hello@demomailtrap.co}
-    properties:
-      mail:
-        smtp:
-          auth: ${MAIL_SMTP_AUTH:true}
-          starttls:
-            enable: ${MAIL_SMTP_STARTTLS_ENABLE:true}
-          ssl:
-            trust: live.smtp.mailtrap.io
 
 # 📊 Logging Configuration
 logging:

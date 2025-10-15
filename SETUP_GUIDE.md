@@ -13,56 +13,15 @@ This guide will help you set up the BookStore application with all necessary con
 
 ### 1. Backend Environment Variables
 
-Create a `.env` file in the root directory with the following variables:
+**Note**: Environment variables are now commented out in the configuration files. The application uses hardcoded default values for development, so no `.env` file is required for basic functionality.
 
-```bash
-# Database Configuration
-DB_PASSWORD=your_secure_database_password
-
-# JWT Configuration (Generate a secure random string)
-JWT_SECRET=your_super_secure_jwt_secret_key_here
-
-# Stripe Configuration (Get from https://dashboard.stripe.com/apikeys)
-STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key_here
-STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key_here
-
-# Google OAuth Configuration (Get from https://console.cloud.google.com/)
-GOOGLE_CLIENT_ID=your_google_client_id_here
-GOOGLE_CLIENT_SECRET=your_google_client_secret_here
-
-# AWS S3 Configuration (Get from AWS Console)
-AWS_ACCESS_KEY_ID=your_aws_access_key_here
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key_here
-AWS_REGION=eu-north-1
-AWS_S3_BUCKET=your_s3_bucket_name_here
-
-# Mail Configuration (Get from your email service provider)
-MAIL_HOST=your_smtp_host_here
-MAIL_PORT=587
-MAIL_USERNAME=your_smtp_username_here
-MAIL_PASSWORD=your_smtp_password_here
-MAIL_FROM=your_from_email_here
-MAIL_SMTP_AUTH=true
-MAIL_SMTP_STARTTLS_ENABLE=true
-```
+If you want to use external services, you can uncomment the relevant lines in the configuration files and set up the proper environment variables.
 
 ### 2. Frontend Environment Variables
 
-Create a `.env` file in the `Frontend` directory:
+**Note**: Environment variables are now commented out in the configuration files. The application uses hardcoded default values for development, so no `.env` file is required for basic functionality.
 
-```bash
-# API Configuration
-REACT_APP_API_BASE_URL=http://localhost:8080/api
-
-# Stripe Configuration (Get from https://dashboard.stripe.com/apikeys)
-REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key_here
-
-# Google OAuth Configuration (Get from https://console.cloud.google.com/)
-REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id_here
-
-# Other Configuration
-REACT_APP_ENVIRONMENT=development
-```
+If you want to use external services, you can uncomment the relevant lines in the configuration files and set up the proper environment variables.
 
 ## 🔑 Service Configuration
 
@@ -135,9 +94,9 @@ npm start
 
 ## 📝 Before Committing to GitHub
 
-1. ✅ Set up all environment variables
-2. ✅ Test Stripe payment flow
-3. ✅ Test Google OAuth login
+1. ✅ Environment variables are now commented out (no setup required)
+2. ✅ Test basic application functionality
+3. ✅ Test user registration and login
 4. ✅ Verify all endpoints work correctly
 5. ✅ Check for any remaining linting errors
 6. ✅ Update documentation if needed

@@ -1,6 +1,6 @@
 # 🚀 BookStore Production Setup Guide
 
-This guide covers the production-ready setup of the BookStore application with Saga Pattern, monitoring, and enhanced security.
+This guide covers the production-ready setup of the BookStore application with monitoring, and enhanced security.
 
 ## 🏗️ Architecture Overview
 
@@ -28,41 +28,31 @@ This guide covers the production-ready setup of the BookStore application with S
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-## 🔄 Saga Pattern Implementation
+## 🔄 Order Processing Implementation
 
-### Saga Workflow Steps
+### Order Workflow Steps
 
-1. **STARTED** → Order creation initiated
-2. **INVENTORY_RESERVED** → Books reserved in inventory
-3. **PAYMENT_PROCESSED** → Payment completed successfully
-4. **SHIPMENT_CREATED** → Shipping label generated
-5. **COMPLETED** → Order fully processed
+1. **Order Creation** → User places order from cart
+2. **Inventory Check** → Verify book availability
+3. **Payment Processing** → Process payment via Stripe
+4. **Order Confirmation** → Send confirmation email
+5. **Order Fulfillment** → Update order status
 
-### Compensation Logic
+### Order States
 
-- **Inventory Release**: Return reserved books to available stock
-- **Refund Processing**: Process payment reversals
-- **Shipment Cancellation**: Cancel shipping labels
-- **User Changes Rollback**: Revert any user account modifications
-- **Cart Restoration**: Restore items to user's cart
-
-### Saga States
-
-- `STARTED`: Initial state
-- `INVENTORY_RESERVED`: Books reserved
-- `PAYMENT_PROCESSED`: Payment completed
-- `SHIPMENT_CREATED`: Shipping arranged
-- `COMPLETED`: Successfully finished
-- `FAILED`: Error occurred
-- `COMPENSATING`: Rolling back changes
-- `COMPENSATED`: Successfully rolled back
+- `NEW_ORDER`: Order just created
+- `PROCESSING`: Order being processed
+- `SHIPPED`: Order shipped to customer
+- `DELIVERED`: Order delivered successfully
+- `CANCELLED`: Order cancelled
+- `REFUNDED`: Order refunded
 
 ## 📊 Monitoring & Observability
 
 ### Prometheus Metrics
 
 - **Application Metrics**: HTTP requests, response times, error rates
-- **Saga Metrics**: Execution time, success/failure rates, compensation events
+- **Order Metrics**: Order processing time, success/failure rates
 - **Kafka Metrics**: Message throughput, consumer lag, producer errors
 - **JVM Metrics**: Memory usage, GC performance, thread states
 - **Database Metrics**: Connection pool, query performance
@@ -70,14 +60,14 @@ This guide covers the production-ready setup of the BookStore application with S
 ### Grafana Dashboards
 
 - **BookStore Application Dashboard**: Overall application health
-- **Saga Workflow Dashboard**: Saga execution monitoring
+- **Order Processing Dashboard**: Order workflow monitoring
 - **Kafka Dashboard**: Message broker performance
 - **Infrastructure Dashboard**: System resources
 
 ### Alerting Rules
 
 - **Critical**: Application down, high error rates
-- **Warning**: High response times, memory usage, saga failures
+- **Warning**: High response times, memory usage, order processing failures
 - **Info**: Performance degradation, resource usage
 
 ## 🚀 Quick Start
@@ -98,7 +88,9 @@ cd BookStore
 
 ### 3. Environment Configuration
 
-Create `.env` file with production values:
+**Note**: Environment variables are now commented out in the configuration files. The application uses hardcoded default values for development. For production, you should uncomment the relevant lines in the configuration files and set up proper environment variables.
+
+If you want to use external services, create a `.env` file with production values:
 
 ```env
 # Database
@@ -108,14 +100,14 @@ POSTGRES_DB=BookStore
 # JWT
 JWT_SECRET=your_very_long_random_secret_key
 
-# AWS S3
+# AWS S3 (Optional)
 AWS_ACCESS_KEY_ID=your_access_key
 AWS_SECRET_ACCESS_KEY=your_secret_key
 
-# Stripe
+# Stripe (Optional)
 STRIPE_SECRET_KEY=your_stripe_secret_key
 
-# Google OAuth
+# Google OAuth (Optional)
 GOOGLE_CLIENT_ID=your_client_id
 GOOGLE_CLIENT_SECRET=your_client_secret
 ```
@@ -148,7 +140,7 @@ docker-compose logs -f
 
 ```yaml
 jwt:
-  secret: ${JWT_SECRET:your_secure_secret}
+  secret: dGhpcy1pcy1hLXN1cGVyLXNlY3JldC1rZXktdGhhdC1pcy1tb3JlLXRoYW4tMzItYnl0ZXMhISE=
   expiration: 86400000 # 24 hours
 ```
 
@@ -206,8 +198,8 @@ npm test
 # API integration tests
 mvn test -Dtest=*IntegrationTest
 
-# Saga workflow tests
-mvn test -Dtest=*SagaTest
+# Order processing tests
+mvn test -Dtest=*OrderTest
 ```
 
 ### Load Testing
@@ -238,8 +230,8 @@ jmeter -t load-test-plan.jmx
 
 ### Common Issues
 
-1. **Saga Failures**
-   - Check compensation logic
+1. **Order Processing Failures**
+   - Check order service logic
    - Verify Kafka connectivity
    - Review database constraints
 
@@ -259,8 +251,8 @@ jmeter -t load-test-plan.jmx
 # Check service health
 curl http://localhost:8080/actuator/health
 
-# View saga status
-curl http://localhost:8080/api/v1/sagas/statistics
+# View order statistics
+curl http://localhost:8080/api/v1/orders/statistics
 
 # Check Kafka topics
 docker exec -it kafka kafka-topics --list --bootstrap-server localhost:9092
@@ -271,13 +263,12 @@ docker-compose logs -f --tail=100
 
 ## 📚 API Documentation
 
-### Saga Endpoints
+### Order Endpoints
 
-- `POST /api/v1/orders` - Create order with saga
-- `GET /api/v1/sagas/{orderId}` - Get saga status
-- `POST /api/v1/sagas/{orderId}/execute` - Execute next step
-- `POST /api/v1/sagas/{orderId}/compensate` - Compensate step
-- `GET /api/v1/sagas/statistics` - Get saga metrics
+- `POST /api/v1/orders` - Create new order
+- `GET /api/v1/orders/{orderId}` - Get order details
+- `PUT /api/v1/orders/{orderId}/status` - Update order status
+- `GET /api/v1/orders/statistics` - Get order metrics
 
 ### Order Management
 

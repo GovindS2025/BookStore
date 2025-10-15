@@ -44,8 +44,10 @@ spring:
       client:
         registration:
           google:
-            client-id: ${GOOGLE_CLIENT_ID}
-            client-secret: ${GOOGLE_CLIENT_SECRET}
+            # client-id: ${GOOGLE_CLIENT_ID}
+            # client-secret: ${GOOGLE_CLIENT_SECRET}
+            client-id: your-google-client-id
+            client-secret: your-google-client-secret
             scope:
               - email
               - profile
@@ -88,17 +90,22 @@ spring:
     auto-startup: false
 
   mail:
-    host: ${MAIL_HOST:live.smtp.mailtrap.io}
-    port: ${MAIL_PORT:587}
-    username: ${MAIL_USERNAME:Govind}
-    password: ${MAIL_PASSWORD:Govind123}
-    from: ${MAIL_FROM:hello@demomailtrap.co}
+    # host: ${MAIL_HOST:live.smtp.mailtrap.io}
+    # port: ${MAIL_PORT:587}
+    # username: ${MAIL_USERNAME:Govind}
+    # password: ${MAIL_PASSWORD:Govind123}
+    # from: ${MAIL_FROM:hello@demomailtrap.co}
+    host: live.smtp.mailtrap.io
+    port: 587
+    username: Govind
+    password: Govind123
+    from: hello@demomailtrap.co
     properties:
       mail:
         smtp:
-          auth: ${MAIL_SMTP_AUTH:true}
+          auth: true
           starttls:
-            enable: ${MAIL_SMTP_STARTTLS_ENABLE:true}
+            enable: true
           ssl:
             trust: live.smtp.mailtrap.io
 
@@ -107,19 +114,24 @@ jwt:
   # ⭐ CRITICAL: JWT secret key. This value must be securely stored and NOT hardcoded in production.
   # Use a strong, randomly generated, Base64-encoded string (e.g., from a key generator tool).
   # For production, always use an environment variable like ${JWT_SECRET}.
-  secret: ${JWT_SECRET:dGhpcy1pcy1hLXN1cGVyLXNlY3JldC1rZXktdGhhdC1pcy1tb3JlLXRoYW4tMzItYnl0ZXMhISE=}
+  # secret: ${JWT_SECRET:dGhpcy1pcy1hLXN1cGVyLXNlY3JldC1rZXktdGhhdC1pcy1tb3JlLXRoYW4tMzItYnl0ZXMhISE=}
+  secret: dGhpcy1pcy1hLXN1cGVyLXNlY3JldC1rZXktdGhhdC1pcy1tb3JlLXRoYW4tMzItYnl0ZXMhISE=
   expiration: 86400000 # Token expiration time in milliseconds (10 hours = 10 * 60 * 60 * 1000 = 36000000, 86400000 is 24 hours)
 
 # 📦 AWS S3 Configuration
 cloud:
   aws:
     credentials:
-      access-key: ${AWS_ACCESS_KEY_ID:your-aws-access-key} # AWS access key
-      secret-key: ${AWS_SECRET_ACCESS_KEY:your-aws-secret-key} # AWS secret key (🔐 Sensitive: consider environment variables for production)
+      # access-key: ${AWS_ACCESS_KEY_ID:} # AWS access key
+      # secret-key: ${AWS_SECRET_ACCESS_KEY:} # AWS secret key (🔐 Sensitive: consider environment variables for production)
+      access-key: your-aws-access-key
+      secret-key: your-aws-secret-key
     region:
-      static: ${AWS_REGION:eu-north-1} # AWS region
+      # static: ${AWS_REGION:eu-north-1} # AWS region
+      static: eu-north-1
     s3:
-      bucket-name: ${AWS_S3_BUCKET:bookstoreimagesbkt} # S3 bucket name
+      # bucket-name: ${AWS_S3_BUCKET:} # S3 bucket name
+      bucket-name: your-s3-bucket
 
 # 📝 Logging Configuration
 logging:
@@ -148,13 +160,14 @@ cors:
 # 💳 Stripe Configuration
 stripe:
   secret:
-    key: ${STRIPE_SECRET_KEY:your-stripe-secret-key}
+    # key: ${STRIPE_SECRET_KEY:your-stripe-secret-key}
+    key: your-stripe-secret-key
     # Stripe secret key (ensure this is a test key for development)
   publishable:
-    key: ${STRIPE_PUBLISHABLE_KEY:your-stripe-publishable-key}
+    # key: ${STRIPE_PUBLISHABLE_KEY:your-stripe-publishable-key}
+    key: your-stripe-publishable-key
     # Stripe publishable key (this is the key you can use on the frontend)
 # 🖼️ Local Images Configuration
-app:
   local-images:
     directory: ${LOCAL_IMAGES_DIR:/app/images} # Local directory containing book images
     url-prefix: /api/images/local/ # URL prefix for serving local images

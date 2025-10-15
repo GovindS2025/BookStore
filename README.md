@@ -224,37 +224,9 @@ npm start
 ## 🔧 Configuration
 
 ### Environment Variables
-Create a `.env` file in the root directory:
+**Note**: Environment variables are now commented out in the configuration files. The application uses hardcoded default values for development, so no `.env` file is required for basic functionality.
 
-```env
-# Database Configuration
-SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/BookStore
-SPRING_DATASOURCE_USERNAME=postgres
-SPRING_DATASOURCE_PASSWORD=your_password
-
-# JWT Configuration
-JWT_SECRET=your_jwt_secret_key_here
-
-# OAuth2 Configuration
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-
-# AWS S3 Configuration
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-AWS_REGION=your_aws_region
-AWS_S3_BUCKET=your_s3_bucket_name
-
-# Email Configuration
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USERNAME=your_email@gmail.com
-MAIL_PASSWORD=your_app_password
-
-# Kafka Configuration
-KAFKA_ENABLED=true
-SPRING_KAFKA_BOOTSTRAP_SERVERS=localhost:9092
-```
+If you want to use external services, you can uncomment the relevant lines in the configuration files and set up the proper environment variables.
 
 ### Database Setup
 ```sql
@@ -503,6 +475,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   <strong>Made with ❤️ by Govind Singh</strong><br>
   <em>Building the future of e-commerce, one line of code at a time.</em>
 </div>
-#   B o o k S t o r e  
- #   B o o k S t o r e  
+#   B o o k S t o r e 
+ 
+ #   B o o k S t o r e 
+ 
  

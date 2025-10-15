@@ -22,10 +22,6 @@ public class MonitoringConfig {
         return new TimedAspect(registry);
     }
 
-    @Bean
-    public SagaMetrics sagaMetrics(MeterRegistry meterRegistry) {
-        return new SagaMetrics(meterRegistry);
-    }
 
     @Bean
     public OrderMetrics orderMetrics(MeterRegistry meterRegistry) {
@@ -49,58 +45,6 @@ public class MonitoringConfig {
         return new RedisHealthIndicator();
     }
 
-    public static class SagaMetrics {
-        private final Timer sagaExecutionTimer;
-        private final AtomicLong activeSagas;
-        private final AtomicLong completedSagas;
-        private final AtomicLong failedSagas;
-        private final AtomicLong compensatingSagas;
-
-        public SagaMetrics(MeterRegistry meterRegistry) {
-            this.sagaExecutionTimer = Timer.builder("saga.execution.time")
-                    .description("Time taken to execute saga steps")
-                    .register(meterRegistry);
-            
-            this.activeSagas = meterRegistry.gauge("saga.active.count", new AtomicLong(0));
-            this.completedSagas = meterRegistry.gauge("saga.completed.count", new AtomicLong(0));
-            this.failedSagas = meterRegistry.gauge("saga.failed.count", new AtomicLong(0));
-            this.compensatingSagas = meterRegistry.gauge("saga.compensating.count", new AtomicLong(0));
-        }
-
-        public Timer.Sample startTimer() {
-            return Timer.start();
-        }
-
-        public void stopTimer(Timer.Sample sample) {
-            sample.stop(sagaExecutionTimer);
-        }
-
-        public void incrementActiveSagas() {
-            activeSagas.incrementAndGet();
-        }
-
-        public void decrementActiveSagas() {
-            activeSagas.decrementAndGet();
-        }
-
-        public void incrementCompletedSagas() {
-            completedSagas.incrementAndGet();
-            decrementActiveSagas();
-        }
-
-        public void incrementFailedSagas() {
-            failedSagas.incrementAndGet();
-            decrementActiveSagas();
-        }
-
-        public void incrementCompensatingSagas() {
-            compensatingSagas.incrementAndGet();
-        }
-
-        public void decrementCompensatingSagas() {
-            compensatingSagas.decrementAndGet();
-        }
-    }
 
     public static class OrderMetrics {
         private final AtomicLong totalOrders;

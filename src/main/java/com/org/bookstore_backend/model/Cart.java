@@ -31,6 +31,7 @@ public class Cart {
     // 'mappedBy' indicates that CartItem owns the relationship (has the foreign key)
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonManagedReference
+    @Builder.Default
     private Set<CartItem> cartItems = new HashSet<>();
 
     // You could add fields like 'totalAmount' here, but it's often calculated on the fly

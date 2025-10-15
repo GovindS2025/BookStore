@@ -2,7 +2,7 @@
   "dashboard": {
     "id": null,
     "title": "BookStore Application Dashboard",
-    "tags": ["bookstore", "saga", "monitoring"],
+    "tags": ["bookstore", "monitoring"],
     "style": "dark",
     "timezone": "browser",
     "panels": [
@@ -69,39 +69,39 @@
       },
       {
         "id": 5,
-        "title": "Saga Metrics",
+        "title": "Order Metrics",
         "type": "stat",
         "targets": [
           {
-            "expr": "saga_active_count",
-            "legendFormat": "Active Sagas"
+            "expr": "orders_total_count",
+            "legendFormat": "Total Orders"
           },
           {
-            "expr": "saga_completed_count",
-            "legendFormat": "Completed Sagas"
+            "expr": "orders_completed_count",
+            "legendFormat": "Completed Orders"
           },
           {
-            "expr": "saga_failed_count",
-            "legendFormat": "Failed Sagas"
+            "expr": "orders_failed_count",
+            "legendFormat": "Failed Orders"
           },
           {
-            "expr": "saga_compensating_count",
-            "legendFormat": "Compensating Sagas"
+            "expr": "orders_in_progress_count",
+            "legendFormat": "Orders In Progress"
           }
         ],
         "gridPos": {"h": 8, "w": 24, "x": 0, "y": 16}
       },
       {
         "id": 6,
-        "title": "Saga Execution Time",
+        "title": "Order Processing Time",
         "type": "graph",
         "targets": [
           {
-            "expr": "histogram_quantile(0.95, rate(saga_execution_time_bucket[5m]))",
+            "expr": "histogram_quantile(0.95, rate(order_processing_time_bucket[5m]))",
             "legendFormat": "95th percentile"
           },
           {
-            "expr": "histogram_quantile(0.50, rate(saga_execution_time_bucket[5m]))",
+            "expr": "histogram_quantile(0.50, rate(order_processing_time_bucket[5m]))",
             "legendFormat": "50th percentile"
           }
         ],
