@@ -13,9 +13,9 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>spring-boot-app</artifactId>
+	<artifactId>BookStore_v1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BookStore</name>
+	<name>BookStore_v1</name>
 	<description>BookStore Project SpringBoot implementation</description>
 	<url/>
 	<licenses><license/></licenses>
